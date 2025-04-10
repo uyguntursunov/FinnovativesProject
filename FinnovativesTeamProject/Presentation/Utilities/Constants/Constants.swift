@@ -10,19 +10,8 @@ import UIKit
 private let largeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .regular, scale: .default)
 private let mediumConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
 
-//var paymentForServicesItems: [PaymentForServicesItem] = [
-//    PaymentForServicesItem(title: "Популярное", image: SFSymbols.listClipboard),
-//    PaymentForServicesItem(title: "Мобильные операторы", image: SFSymbols.iphone),
-//    PaymentForServicesItem(title: "Интернет-провайдеры", image: SFSymbols.network),
-//    PaymentForServicesItem(title: "Коммунальные услуги", image: SFSymbols.bolt),
-//    PaymentForServicesItem(title: "Госуслуги и штрафы ГУБДД", image: SFSymbols.buildingColumns),
-//    PaymentForServicesItem(title: "Телефония", image: SFSymbols.phone),
-//    PaymentForServicesItem(title: "Телевидение и онлайн-вещание", image: SFSymbols.tv),
-//    PaymentForServicesItem(title: "Благотворительность", image: SFSymbols.heart)
-//]
-
 enum Titles: String {
-    case main = "Main"
+    case main = "Home"
     case transfer = "Transfer"
     case payment = "Payment"
     case services = "Services"
