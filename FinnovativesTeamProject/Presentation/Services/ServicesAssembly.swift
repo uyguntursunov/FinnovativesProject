@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ServicesAssembly {
+final class ServicesAssembly {
     static func createServicesViewController() -> ServicesViewController {
         let viewController = ServicesViewController()
         return viewController

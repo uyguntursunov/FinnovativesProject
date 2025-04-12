@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CashFlowAssembly {
+final class CashFlowAssembly {
     static func createCashFlowViewController() -> CashFlowViewController {
         let viewController = CashFlowViewController()
         return viewController

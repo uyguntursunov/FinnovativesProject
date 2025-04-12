@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CashFlowViewController: UIViewController {
+final class CashFlowViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,8 +9,7 @@ import Foundation
 
 protocol HomeInteractorProtocol {
     func onViewDidLoad()
-    func onDidSelectItem(at indexPath: IndexPath)
-    func onScanNFC(request: HomeModels.ScanNFC.Request)
+    func onScanNFC()
 }
 
 final class HomeInteractor {
@@ -46,21 +45,9 @@ extension HomeInteractor: HomeInteractorProtocol {
         }
     }
     
-    func onDidSelectItem(at indexPath: IndexPath) {
-        
-    }
-    
-    func onScanNFC(request: HomeModels.ScanNFC.Request) {
-        worker.scanNFC(request: request) { [weak self] result in
-            let response: HomeModels.ScanNFC.Response
-            switch result {
-            case .success(let data):
-                response = .init(url: data.url, error: data.error)
-            case .failure(let error):
-                response = .init(url: nil, error: error)
-                print("Couldn't scan NFC: \(error.localizedDescription)")
-            }
-            
+    func onScanNFC() {
+        worker.scanNFC() { [weak self] result in
+            let response = HomeModels.ScanNFC.Response(urlString: result.urlString, error: result.error)
             self?.presentor.presentNFCResult(response)
         }
     }

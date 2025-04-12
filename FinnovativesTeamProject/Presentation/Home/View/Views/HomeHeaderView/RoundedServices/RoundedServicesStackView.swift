@@ -1,8 +1,8 @@
 //
 //  RoundedServicesStackView.swift
-//  PClone
+//  FinnovativesTeamProject
 //
-//  Created by Uyg'un Tursunov on 15/03/25.
+//  Created by Uyg'un Tursunov on 11/04/25.
 //
 
 import UIKit

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PaymentAssembly {
+final class PaymentAssembly {
     static func createPaymentViewController() -> PaymentViewController {
         let viewController = PaymentViewController()
         return viewController

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeAssembly {
+final class HomeAssembly {
     static func createHomeViewController() -> HomeViewController {
         let worker = HomeWorker()
         let router = HomeRouter()

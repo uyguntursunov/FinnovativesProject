@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TransferAssembly {
+final class TransferAssembly {
     static func createTransferViewController() -> TransferViewController {
         let viewController = TransferViewController()
         return viewController

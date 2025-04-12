@@ -9,20 +9,6 @@ import Foundation
 
 enum HomeModels {
     // MARK: Use cases
-    enum GetTotalBalance {
-        struct Request {
-            let accountID: String
-        }
-        
-        struct Response {
-            let totalBalance: Int
-        }
-        
-        struct ViewModel {
-            let totalBalance: Int
-        }
-    }
-    
     enum FetchContent {
         struct Request {}
         
@@ -43,7 +29,7 @@ enum HomeModels {
         struct Request {}
         
         struct Response {
-            let url: URL?
+            let urlString: String?
             let error: Error?
         }
         

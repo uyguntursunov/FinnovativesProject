@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TransferViewController: UIViewController {
+final class TransferViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

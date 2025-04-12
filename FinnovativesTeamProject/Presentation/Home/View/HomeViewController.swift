@@ -8,7 +8,6 @@
 import UIKit
 
 protocol HomeViewProtocol: AnyObject {
-    func displayTotalBalance(_ viewModel: HomeModels.GetTotalBalance.ViewModel)
     func displayContent(_ viewModel: HomeModels.FetchContent.ViewModel)
     func displayNFCResult(_ viewModel: HomeModels.ScanNFC.ViewModel)
     func displayErrorAlert(_ message: String)
@@ -69,7 +68,7 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        hideNavigationController()
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     // MARK: - Draw
@@ -222,10 +221,14 @@ final class HomeViewController: UIViewController {
         return layout
     }
     
-    private func hideNavigationController() {
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
+    // MARK: - Events
     
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            interactor?.onScanNFC()
+        }
+    }
+
     // MARK: - Actions
     
     @objc func didRefresh() {
@@ -236,10 +239,6 @@ final class HomeViewController: UIViewController {
 // MARK: - HomeViewProtocol
 
 extension HomeViewController: HomeViewProtocol {
-    func displayTotalBalance(_ viewModel: HomeModels.GetTotalBalance.ViewModel) {
-        
-    }
-    
     func displayContent(_ viewModel: HomeModels.FetchContent.ViewModel) {
         events = viewModel.events
         financialServices = viewModel.financialServices

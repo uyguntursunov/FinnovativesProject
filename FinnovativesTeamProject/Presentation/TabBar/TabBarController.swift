@@ -15,7 +15,7 @@ let navControllers: [NavigationController] = [
     NavigationController(title: Titles.cashFlow.rawValue, tabBarImage: SFSymbols.clockArrow)
 ]
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
