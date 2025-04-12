@@ -33,11 +33,11 @@ class TabBarController: UITabBarController {
     }
     
     private func configureNavControllers() {
-        let homeVC = HomeConfigurator.configure()
-        let transferVC = TransferConfigurator.configure()
-        let paymentVC = PaymentConfigurator.configure()
-        let servicesVC = ServicesConfigurator.configure()
-        let cashFlowVC = CashFlowConfigurator.configure()
+        let homeVC = HomeAssembly.createHomeViewController()
+        let transferVC = TransferAssembly.createTransferViewController()
+        let paymentVC = PaymentAssembly.createPaymentViewController()
+        let servicesVC = ServicesAssembly.createServicesViewController()
+        let cashFlowVC = CashFlowAssembly.createCashFlowViewController()
         
         let viewControllers = [
             UINavigationController(rootViewController: homeVC),
