@@ -8,11 +8,60 @@
 import SwiftUI
 
 struct SuccessView: View {
+    @State private var animate = false
+    @Binding var rootPresenting: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.customBackground
+                .ignoresSafeArea()
+            
+            VStack {
+                
+                Spacer()
+                Circle()
+                    .overlay(
+                        Image("checkmarkLogo")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 40, height: 40)
+                            .rotationEffect(.degrees(animate ? 0 : -180))
+                            .opacity(animate ? 1 : 0)
+                            .animation(.easeOut(duration: 0.6), value: animate)
+                    )
+                    .foregroundStyle(.main)
+                    .frame(width: 85, height: 85)
+                
+                Text("Success!")
+                    .font(.title3.bold())
+                
+                Text("We have successfully received your request. Our operators will contact your company shortly!")
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.gray)
+                    .padding()
+                
+                Spacer()
+                
+                VStack {
+                    Image(systemName: "chevron.backward")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 24, weight: .bold))
+                    
+                    Text("Return to app")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding()
+                }
+                
+                .onTapGesture {
+                    rootPresenting = false
+                }
+            }
+            
+        }
+        .onAppear {
+            animate = true
+        }
+        .navigationBarBackButtonHidden()
     }
-}
-
-#Preview {
-    SuccessView()
 }

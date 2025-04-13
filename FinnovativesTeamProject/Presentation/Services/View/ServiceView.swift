@@ -7,12 +7,36 @@
 
 import SwiftUI
 
-struct ServiceView: View {
+struct ServicesView: View {
+    @StateObject private var viewModel = ServiceViewModel()
+    @State private var rootPresenting = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack(spacing: 10) {
+                ForEach(viewModel.services) { service in
+                    if service.title == "Order NFC sticker" {
+                        NavigationLink(
+                            destination:
+                                ServiceProvidersView(rootPresenting: $rootPresenting)
+                            ,
+                            isActive: $rootPresenting
+                        ){
+                            ServiceCardView(service: service)
+                        }
+                    } else {
+                        ServiceCardView(service: service)
+                    }
+                }
+            }
+            .padding()
+        }
+        .background(Color.customBackground)
+        .navigationTitle("Services")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    ServiceView()
+    ServicesView()
 }

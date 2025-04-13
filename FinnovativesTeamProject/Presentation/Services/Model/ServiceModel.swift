@@ -7,3 +7,21 @@
 
 import Foundation
 
+struct Service: Identifiable {
+    let id = UUID()
+    let icon: String
+    let title: String
+    let subtitle: String
+}
+
+struct TabItemModel {
+    let title: String
+    let icon: String
+    let label: String
+}
+
+struct ServiceProvider: Identifiable {
+    let id = UUID()
+    let name: String
+    let logo: String
+}

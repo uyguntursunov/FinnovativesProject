@@ -17,7 +17,7 @@ struct ServiceCardView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 30, height: 30)
-                .foregroundColor(Color.icon)
+                .foregroundColor(Color.main)
                 .padding(10)
                 .padding(5)
             
@@ -44,7 +44,3 @@ struct ServiceCardView: View {
         .cornerRadius(10)
     }
 }
-
-//#Preview {
-//    ServiceCard()
-//}

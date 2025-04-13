@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct ServiceProviderCard: View {
+    let provider: ServiceProvider
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Image(provider.logo)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80, height: 80)
+                .padding()
+        }
+        .frame(maxWidth: .infinity)
+        .background(Color.white)
+        .cornerRadius(10)
     }
-}
-
-#Preview {
-    ServiceProviderCard()
 }
