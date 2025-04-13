@@ -16,16 +16,16 @@ class ColoredSectionBackgroundView: UICollectionReusableView {
         switch SectionType(rawValue: section) {
         case .header:
             backgroundColor = .clear
-        case .events:
-            backgroundColor = .secondarySystemBackground
-            layer.cornerRadius = 20
-            layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         case .finServices:
-            backgroundColor = .secondarySystemBackground
+            backgroundColor = .background
+            layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            layer.cornerRadius = 20
+        case .events:
+            backgroundColor = .background
         case .paymentForServices:
-            backgroundColor = .secondarySystemBackground
+            backgroundColor = .background
         case .none:
-            backgroundColor = .secondarySystemBackground
+            backgroundColor = .background
         }
     }
 }

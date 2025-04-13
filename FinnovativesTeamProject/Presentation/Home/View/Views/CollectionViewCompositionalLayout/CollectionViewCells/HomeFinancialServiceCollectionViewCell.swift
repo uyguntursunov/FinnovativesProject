@@ -37,7 +37,7 @@ class HomeFinancialServiceCollectionViewCell: UICollectionViewCell {
     private func setupSubviews() {
         let padding: CGFloat = 13.0
         let imageSize: CGFloat = 40
-        backgroundColor = .background
+        backgroundColor = .serviceCardBg
         layer.cornerRadius = 12
         
         [mainImageView, titleLabel].forEach {

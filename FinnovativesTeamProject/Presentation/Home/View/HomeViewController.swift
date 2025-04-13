@@ -22,7 +22,7 @@ final class HomeViewController: UIViewController {
     // MARK: - Properties
     
     private let width = UIScreen.main.bounds.width
-    private let sectionTitles = ["Events", "Financial services", "Payment for services"]
+    private let sectionTitles = ["Financial services", "Events", "Payment for services"]
     private var events: [EventModel] = []
     private var financialServices: [FinancialServiceModel] = []
     private var paymentForServices: [PaymentForServiceModel] = []
@@ -149,23 +149,6 @@ final class HomeViewController: UIViewController {
                 sectionHeader.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
                 return section
                 
-            case .events:
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                let groupSize = NSCollectionLayoutSize(
-                    widthDimension: .absolute(self.width - 32),
-                    heightDimension: .estimated(125))
-                let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(
-                    layoutSize: groupSize,
-                    subitems: [item])
-                section = NSCollectionLayoutSection(group: group)
-                section.interGroupSpacing = 10
-                section.orthogonalScrollingBehavior = .groupPagingCentered
-                section.contentInsets = .init(top: 0, leading: 0, bottom: 10, trailing: 0)
-                section.decorationItems = [backgroundItem]
-                section.boundarySupplementaryItems = [sectionHeader]
-                sectionHeader.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-                return section
-                
             case .finServices:
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(
@@ -181,6 +164,21 @@ final class HomeViewController: UIViewController {
                 section.decorationItems = [backgroundItem]
                 section.boundarySupplementaryItems = [sectionHeader]
                 sectionHeader.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: -13, bottom: 0, trailing: -13)
+                return section
+                
+            case .events:
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .absolute(self.width - 32),
+                    heightDimension: .estimated(127))
+                let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(
+                    layoutSize: groupSize,
+                    subitems: [item])
+                section = NSCollectionLayoutSection(group: group)
+                section.interGroupSpacing = 10
+                section.orthogonalScrollingBehavior = .groupPagingCentered
+                section.contentInsets = .init(top: 0, leading: 0, bottom: 10, trailing: 0)
+                section.decorationItems = [backgroundItem]
                 return section
                 
             case .paymentForServices:
@@ -282,18 +280,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             return cell
             
-        case .events:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HomeEventCollectionViewCell.self), for: indexPath) as? HomeEventCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            cell.configure(model: events[indexPath.item])
-            return cell
-            
         case .finServices:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HomeFinancialServiceCollectionViewCell.self), for: indexPath) as? HomeFinancialServiceCollectionViewCell else {
                 return UICollectionViewCell()
             }
             cell.configure(model: financialServices[indexPath.item])
+            return cell
+            
+        case .events:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HomeEventCollectionViewCell.self), for: indexPath) as? HomeEventCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configure(model: events[indexPath.item])
             return cell
             
         case .paymentForServices:

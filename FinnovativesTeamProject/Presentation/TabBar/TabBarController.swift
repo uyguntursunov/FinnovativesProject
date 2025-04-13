@@ -25,8 +25,8 @@ final class TabBarController: UITabBarController {
     }
     
     private func initViews() {
-        tabBar.backgroundColor = .background
-        tabBar.barTintColor = .background
+        tabBar.backgroundColor = .tabBarBackground
+        tabBar.barTintColor = .tabBarBackground
         tabBar.tintColor = .main
         tabBar.unselectedItemTintColor = .secondaryLabel
         tabBar.isTranslucent = false

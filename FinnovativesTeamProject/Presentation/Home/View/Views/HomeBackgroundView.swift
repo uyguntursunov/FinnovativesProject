@@ -22,7 +22,8 @@ class HomeBackgroundView: UIView {
         let topView = UIView()
         topView.backgroundColor = .main
         let bottomView = UIView()
-        bottomView.backgroundColor = .secondarySystemBackground
+        bottomView.backgroundColor = .background
+        bottomView.layer.cornerRadius = 20
         
         [topView, bottomView].forEach {
             addSubview($0)

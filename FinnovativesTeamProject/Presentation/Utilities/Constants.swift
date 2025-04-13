@@ -54,7 +54,7 @@ enum SFSymbols {
 
 enum SectionType: Int, CaseIterable {
     case header = 0
-    case events = 1
-    case finServices = 2
+    case finServices = 1
+    case events = 2
     case paymentForServices = 3
 }

@@ -47,7 +47,7 @@ class PaymentForServiceCollectionViewCell: UICollectionViewCell {
     
     private func setupSubviews() {
         let iconSize: CGFloat = 30
-        backgroundColor = .background
+        backgroundColor = .serviceCardBg
         layer.cornerRadius = 12
         
         [iconImageView, titleLabel].forEach {

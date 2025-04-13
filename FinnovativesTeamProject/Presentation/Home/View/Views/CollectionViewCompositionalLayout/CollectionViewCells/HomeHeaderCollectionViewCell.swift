@@ -31,8 +31,7 @@ class HomeHeaderCollectionViewCell: UICollectionViewCell {
             headerView.topAnchor.constraint(equalTo: contentView.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            headerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-//            headerView.heightAnchor.constraint(equalToConstant: 275)
+            headerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
 }
