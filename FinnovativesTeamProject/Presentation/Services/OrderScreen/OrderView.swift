@@ -157,7 +157,7 @@ struct OrderView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        dismiss() // Dismisses the full-screen cover
+                        dismiss() 
                     } label: {
                         Image(systemName: "chevron.backward")
                             .foregroundColor(.gray)

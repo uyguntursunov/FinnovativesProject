@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeRouterProtocol {
-    
+    func openEventDetails()
 }
 
 final class HomeRouter {
@@ -18,5 +18,8 @@ final class HomeRouter {
 // MARK: - HomeRouterProtocol
 
 extension HomeRouter: HomeRouterProtocol {
-    
+    func openEventDetails() {
+        let viewControllerToPresent = GuidelinesViewController()
+        viewController?.present(viewControllerToPresent, animated: true)
+    }
 }

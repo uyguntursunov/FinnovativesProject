@@ -12,12 +12,7 @@ struct Service: Identifiable {
     let icon: String
     let title: String
     let subtitle: String
-}
-
-struct TabItemModel {
-    let title: String
-    let icon: String
-    let label: String
+    let type: ServiceType
 }
 
 struct ServiceProvider: Identifiable {

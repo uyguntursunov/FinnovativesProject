@@ -226,7 +226,7 @@ final class HomeViewController: UIViewController {
             interactor?.onScanNFC()
         }
     }
-
+    
     // MARK: - Actions
     
     @objc func didRefresh() {
@@ -303,6 +303,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
         case .none:
             return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch SectionType(rawValue: indexPath.section) {
+        case .events:
+            self.router?.openEventDetails()
+        default:
+            break
         }
     }
     
