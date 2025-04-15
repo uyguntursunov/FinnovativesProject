@@ -58,3 +58,19 @@ enum SectionType: Int, CaseIterable {
     case finServices = 2
     case paymentForServices = 3
 }
+
+enum ServiceType: CaseIterable {
+    case credit
+    case plus
+    case deferredPayment
+    case tickets
+    case avia
+    case governmentServices
+    case reminders
+    case accountPayment
+    case fines
+    case goals
+    case lifeSituations
+    case charity
+    case nfcSticker
+}

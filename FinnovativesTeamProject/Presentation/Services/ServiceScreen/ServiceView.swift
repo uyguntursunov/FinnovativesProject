@@ -15,7 +15,8 @@ struct ServicesView: View {
         ScrollView {
             VStack(spacing: 10) {
                 ForEach(viewModel.services) { service in
-                    if service.title == "Order NFC sticker" {
+                    if service.type == .nfcSticker
+                {
                         NavigationLink(
                             destination:
                                 ServiceProvidersView(rootPresenting: $rootPresenting)
