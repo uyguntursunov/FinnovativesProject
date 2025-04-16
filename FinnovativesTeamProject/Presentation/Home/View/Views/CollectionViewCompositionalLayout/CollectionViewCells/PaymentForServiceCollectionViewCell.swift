@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PaymentForServiceCollectionViewCell: UICollectionViewCell {
+final class PaymentForServiceCollectionViewCell: UICollectionViewCell {
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()

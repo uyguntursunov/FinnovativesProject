@@ -9,8 +9,8 @@ import UIKit
 
 protocol HomeViewProtocol: AnyObject {
     func displayContent(_ viewModel: HomeModels.FetchContent.ViewModel)
-    func displayNFCResult(_ viewModel: HomeModels.ScanNFC.ViewModel)
-    func displayErrorAlert(_ message: String)
+    func displayNFCResult(_ url: URL)
+    func displayError(_ message: String)
 }
 
 final class HomeViewController: UIViewController {
@@ -22,7 +22,6 @@ final class HomeViewController: UIViewController {
     // MARK: - Properties
     
     private let width = UIScreen.main.bounds.width
-    private let sectionTitles = ["Financial services", "Events", "Payment for services"]
     private var events: [EventModel] = []
     private var financialServices: [FinancialServiceModel] = []
     private var paymentForServices: [PaymentForServiceModel] = []
@@ -38,16 +37,12 @@ final class HomeViewController: UIViewController {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.refreshControl = refreshControl
-        collectionView.register(CustomSectionHeaderView.self,
-                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: String(describing: CustomSectionHeaderView.self))
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(HomeHeaderCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: HomeHeaderCollectionViewCell.self))
-        collectionView.register(HomeEventCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: HomeEventCollectionViewCell.self))
-        collectionView.register(HomeFinancialServiceCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: HomeFinancialServiceCollectionViewCell.self))
-        collectionView.register(PaymentForServiceCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: PaymentForServiceCollectionViewCell.self))
+        
+        registerCellsAndSupplementaryViews(for: collectionView)
+        
         return collectionView
     }()
     
@@ -102,6 +97,23 @@ final class HomeViewController: UIViewController {
             navigationBarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             navigationBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+    }
+    
+    private func registerCellsAndSupplementaryViews(for collectionView: UICollectionView) {
+        collectionView.register(CustomSectionHeaderView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: String(describing: CustomSectionHeaderView.self))
+        
+        let cellTypes: [HomeCellType] = [
+            .homeHeader,
+            .homeEvent,
+            .homeFinancialService,
+            .paymentForService
+        ]
+        
+        cellTypes.forEach { cellType in
+            collectionView.register(cellType.cellClass, forCellWithReuseIdentifier: cellType.reuseIdentifier)
+        }
     }
     
     private func createLayout() -> UICollectionViewLayout {
@@ -232,6 +244,14 @@ final class HomeViewController: UIViewController {
     @objc func didRefresh() {
         refreshControl.endRefreshing()
     }
+    
+    // MARK: - Helpers
+    
+    private func dequeueCell(for cellType: HomeCellType, at indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier,
+                                                      for: indexPath)
+        return cell
+    }
 }
 
 // MARK: - HomeViewProtocol
@@ -244,16 +264,14 @@ extension HomeViewController: HomeViewProtocol {
         collectionView.reloadData()
     }
     
-    func displayNFCResult(_ viewModel: HomeModels.ScanNFC.ViewModel) {
-        if let url = viewModel.urlToOpen {
-            UIApplication.shared.open(url, options: [:]) { success in
-                if !success {
-                    self.displayErrorAlert("Could not open the scanned URL.")
-                }
-            }
-        } else if let errorMessage = viewModel.errorMessage {
-            displayErrorAlert(errorMessage)
+    func displayNFCResult(_ url: URL) {
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
         }
+    }
+    
+    func displayError(_ message: String) {
+        self.displayErrorAlert(message)
     }
 }
 
@@ -273,36 +291,34 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch SectionType(rawValue: indexPath.section) {
+        guard let sectionType = SectionType(rawValue: indexPath.section) else {
+            return UICollectionViewCell()
+        }
+        
+        switch sectionType {
         case .header:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HomeHeaderCollectionViewCell.self), for: indexPath) as? HomeHeaderCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            return cell
+            return dequeueCell(for: .homeHeader, at: indexPath)
             
         case .finServices:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HomeFinancialServiceCollectionViewCell.self), for: indexPath) as? HomeFinancialServiceCollectionViewCell else {
-                return UICollectionViewCell()
+            let cell = dequeueCell(for: .homeFinancialService, at: indexPath)
+            if let financialCell = cell as? HomeFinancialServiceCollectionViewCell {
+                financialCell.configure(model: financialServices[indexPath.item])
             }
-            cell.configure(model: financialServices[indexPath.item])
             return cell
             
         case .events:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HomeEventCollectionViewCell.self), for: indexPath) as? HomeEventCollectionViewCell else {
-                return UICollectionViewCell()
+            let cell = dequeueCell(for: .homeEvent, at: indexPath)
+            if let eventCell = cell as? HomeEventCollectionViewCell {
+                eventCell.configure(model: events[indexPath.item])
             }
-            cell.configure(model: events[indexPath.item])
             return cell
             
         case .paymentForServices:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PaymentForServiceCollectionViewCell.self), for: indexPath) as? PaymentForServiceCollectionViewCell else {
-                return UICollectionViewCell()
+            let cell = dequeueCell(for: .paymentForService, at: indexPath)
+            if let paymentCell = cell as? PaymentForServiceCollectionViewCell {
+                paymentCell.configure(model: paymentForServices[indexPath.item])
             }
-            cell.configure(model: paymentForServices[indexPath.item])
             return cell
-            
-        case .none:
-            return UICollectionViewCell()
         }
     }
     
@@ -321,7 +337,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionReusableView()
         }
         
-        header.configure(with: sectionTitles[indexPath.section - 1])
+        if let sectionTitle = SectionType(rawValue: indexPath.section)?.sectionTitle {
+            header.configure(with: sectionTitle)
+        }
+        
         return header
     }
     

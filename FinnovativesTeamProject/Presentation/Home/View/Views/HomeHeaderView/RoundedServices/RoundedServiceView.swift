@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RoundedServiceView: UIView {
+final class RoundedServiceView: UIView {
     
     private let serviceButton: UIButton = {
         let button = UIButton()

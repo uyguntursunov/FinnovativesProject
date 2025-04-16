@@ -13,7 +13,7 @@ fileprivate let roundedServices: [HomeMainServiceModel] = [
     HomeMainServiceModel(image: SFSymbols.qrcodeViewfinder, title: "QR payment")
 ]
 
-class RoundedServicesStackView: UIStackView {
+final class RoundedServicesStackView: UIStackView {
         
     override init(frame: CGRect) {
         super.init(frame: frame)

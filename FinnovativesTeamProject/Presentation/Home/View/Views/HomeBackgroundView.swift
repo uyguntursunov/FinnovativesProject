@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeBackgroundView: UIView {
+final class HomeBackgroundView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         

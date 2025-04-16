@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeFinancialServiceCollectionViewCell: UICollectionViewCell {
+final class HomeFinancialServiceCollectionViewCell: UICollectionViewCell {
     
     private let mainImageView: UIImageView = {
         let imageView = UIImageView()

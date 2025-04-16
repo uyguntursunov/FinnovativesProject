@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeNavigationBarView: UIView {
+final class HomeNavigationBarView: UIView {
     
     var avatarButtonAction: (() -> Void)?
     var notificationButtonAction: (() -> Void)?

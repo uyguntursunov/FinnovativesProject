@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeEventCollectionViewCell: UICollectionViewCell {
+final class HomeEventCollectionViewCell: UICollectionViewCell {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()

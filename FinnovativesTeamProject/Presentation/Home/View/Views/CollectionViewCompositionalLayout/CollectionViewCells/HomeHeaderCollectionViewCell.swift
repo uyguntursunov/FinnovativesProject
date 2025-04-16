@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeHeaderCollectionViewCell: UICollectionViewCell {
+final class HomeHeaderCollectionViewCell: UICollectionViewCell {
     
     private let headerView = HomeHeaderView()
     

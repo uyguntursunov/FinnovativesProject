@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeHeaderView: UIView {
+final class HomeHeaderView: UIView {
     
     private let balanceHorizontalStackView = BalanceHorizontalStackView()
     private let roundedServicesStackView = RoundedServicesStackView()

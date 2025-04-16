@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BalanceLabelsVerticalStackView: UIStackView {
+final class BalanceLabelsVerticalStackView: UIStackView {
     
     private let totalBalanceLabel: UILabel = {
         let label = UILabel()

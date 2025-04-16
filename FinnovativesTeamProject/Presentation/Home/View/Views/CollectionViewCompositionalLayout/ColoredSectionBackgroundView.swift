@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ColoredSectionBackgroundView: UICollectionReusableView {
+final class ColoredSectionBackgroundView: UICollectionReusableView {
     override func layoutSubviews() {
         super.layoutSubviews()
     }

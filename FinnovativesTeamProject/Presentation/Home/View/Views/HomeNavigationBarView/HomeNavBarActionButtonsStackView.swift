@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeNavBarActionButtonsStackView: UIStackView {
+final class HomeNavBarActionButtonsStackView: UIStackView {
     
     var notificationButtonAction: (() -> Void)?
     

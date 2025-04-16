@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BalanceHorizontalStackView: UIStackView {
+final class BalanceHorizontalStackView: UIStackView {
     
     private lazy var eyeSlashButton: UIButton = {
         let button = UIButton()
