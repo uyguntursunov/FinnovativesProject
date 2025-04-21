@@ -26,7 +26,7 @@ enum SectionType: Int, CaseIterable {
         case .header:
             return ""
         case .finServices:
-            return "Fin services"
+            return "Financial services"
         case .events:
             return ""
         case .paymentForServices:
