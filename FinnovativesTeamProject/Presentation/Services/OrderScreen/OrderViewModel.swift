@@ -8,6 +8,7 @@
 import Foundation
 
 class OrderViewModel: ObservableObject {
+    let networkManager = NetworkManager()
     
     func isTextFieldsValid(phoneText: String, numberOfStickers: String) -> Bool {
         let digitsOnly = phoneText.filter { $0.isNumber }
@@ -42,5 +43,9 @@ class OrderViewModel: ObservableObject {
             result.append(digit)
         }
         return result
+    }
+    
+    func postOrder(company: CompanyModel, phoneNumber: String, numberOfStickers: String, completion: @escaping (Bool) -> Void) {
+        networkManager.postOrder(company: company, phoneNumber: phoneNumber, numberOfNFCStickers: numberOfStickers, completion: completion)
     }
 }

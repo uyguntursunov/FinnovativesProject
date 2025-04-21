@@ -15,8 +15,15 @@ struct Service: Identifiable {
     let type: ServiceType
 }
 
-struct ServiceProvider: Identifiable {
-    let id = UUID()
+struct CompanyModel: Codable, Identifiable{
+    var id: String
     let name: String
-    let logo: String
+    let imageUrl: String
+}
+
+struct OrderRequestModel: Codable {
+    let comapnyName: String
+    let companyPhone: String
+    let numberOfNFCStickers: Int
+    let companyID: String
 }

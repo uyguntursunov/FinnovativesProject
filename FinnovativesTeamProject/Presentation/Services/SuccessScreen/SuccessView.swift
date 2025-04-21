@@ -19,26 +19,11 @@ struct SuccessView: View {
             VStack {
                 
                 Spacer()
-                Circle()
-                    .overlay(
-                        Image("checkmarkLogo")
-                            .resizable()
-                            .foregroundColor(.white)
-                            .frame(width: 40, height: 40)
-                            .rotationEffect(.degrees(animate ? 0 : -180))
-                            .opacity(animate ? 1 : 0)
-                            .animation(.easeOut(duration: 0.6), value: animate)
-                    )
-                    .foregroundStyle(.main)
-                    .frame(width: 85, height: 85)
+                checkmarkImage
                 
-                Text("Success!")
-                    .font(.title3.bold())
+                successText
                 
-                Text("We have successfully received your request. Our operators will contact your company shortly!")
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.gray)
-                    .padding()
+                detailedSuccessText
                 
                 Spacer()
                 
@@ -63,5 +48,34 @@ struct SuccessView: View {
             animate = true
         }
         .navigationBarBackButtonHidden()
+    }
+}
+
+extension SuccessView {
+    private var checkmarkImage: some View {
+        Circle()
+            .overlay(
+                Image("checkmarkLogo")
+                    .resizable()
+                    .foregroundColor(.white)
+                    .frame(width: 40, height: 40)
+                    .rotationEffect(.degrees(animate ? 0 : -180))
+                    .opacity(animate ? 1 : 0)
+                    .animation(.easeOut(duration: 0.6), value: animate)
+            )
+            .foregroundStyle(.main)
+            .frame(width: 85, height: 85)
+    }
+    
+    private var successText: some View {
+        Text("Success!")
+            .font(.title3.bold())
+    }
+    
+    private var detailedSuccessText: some View {
+        Text("We have successfully received your request. Our operators will contact your company shortly!")
+            .multilineTextAlignment(.center)
+            .foregroundColor(.gray)
+            .padding()
     }
 }

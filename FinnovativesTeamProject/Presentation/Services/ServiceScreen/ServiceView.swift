@@ -13,6 +13,8 @@ struct ServicesView: View {
     
     var body: some View {
         ScrollView {
+            
+            
             VStack(spacing: 10) {
                 ForEach(viewModel.services) { service in
                     if service.type == .nfcSticker

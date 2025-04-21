@@ -19,6 +19,7 @@ struct ServiceProvidersView: View {
     ]
     
     var body: some View {
+        
         ZStack{
             Color.background
                 .ignoresSafeArea()
@@ -29,54 +30,15 @@ struct ServiceProvidersView: View {
                     }
                 }
             
-            
             VStack(spacing: 0) {
-                HStack(spacing: 5) {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundStyle(.gray)
-                        .padding(.leading, 20)
-                    
-                    TextField("Search", text: $viewModel.searchText)
-                        .focused($isSearchFieldFocused)
-                        .padding(.leading, 3)
-                        .cornerRadius(10)
-                        .submitLabel(.done)
-                        .disableAutocorrection(true)
-                        .onSubmit {
-                            isSearchFieldFocused = false
-                        }
-                    
-                    
-                    if !viewModel.searchText.isEmpty {
-                        Button(action: {
-                            viewModel.searchText = ""
-                            isSearchFieldFocused = true
-                        }) {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundStyle(.gray)
-                                .padding(.trailing, 8)
-                        }
-                    }
-                }
-                .frame(height: 54)
                 
-                .background(Color(.systemBackground))
-                .cornerRadius(10)
-                .padding(.horizontal)
-                
+                searchBar
                 
                 VStack {
                     HStack {
-                        // Title
-                        Text("Select your business")
-                            .font(.headline)
-                            .foregroundColor(.primary)
+                        companiesTitle
                         Spacer()
-                        
-                        // Number of Businesses
-                        Text("\(viewModel.filteredServiceProviders.count)")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
+                        numberOfBusinessText
                     }
                     .padding(.horizontal)
                     .padding(.top)
@@ -116,4 +78,53 @@ struct ServiceProvidersView: View {
         }
     }
 }
+
+extension ServiceProvidersView {
+    private var searchBar: some View {
+        HStack(spacing: 5) {
+            Image(systemName: "magnifyingglass")
+                .foregroundStyle(.gray)
+                .padding(.leading, 20)
+            
+            TextField("Search", text: $viewModel.searchText)
+                .focused($isSearchFieldFocused)
+                .padding(.leading, 3)
+                .cornerRadius(10)
+                .submitLabel(.done)
+                .disableAutocorrection(true)
+                .onSubmit {
+                    isSearchFieldFocused = false
+                }
+            
+            
+            if !viewModel.searchText.isEmpty {
+                Button(action: {
+                    viewModel.searchText = ""
+                    isSearchFieldFocused = true
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(.gray)
+                        .padding(.trailing, 8)
+                }
+            }
+        }
+        .frame(height: 54)
+        .background(Color(.systemBackground))
+        .cornerRadius(10)
+        .padding(.horizontal)
+    }
+    
+    private var companiesTitle: some View {
+        Text("Select your business")
+            .font(.headline)
+            .foregroundColor(.primary)
+    }
+    
+    private var numberOfBusinessText: some View {
+        Text("\(viewModel.filteredServiceProviders.count)")
+            .font(.subheadline)
+            .foregroundColor(.gray)
+    }
+}
+
 

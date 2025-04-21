@@ -12,27 +12,13 @@ struct ServiceCardView: View {
     
     var body: some View {
         HStack {
-            // Service image
-            Image(systemName: service.icon)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 30, height: 30)
-                .foregroundColor(Color.main)
-                .padding(10)
-                .padding(5)
+            serviceIcon
             
-            // Service image and subtitle
             VStack(alignment: .leading, spacing: 5){
-                Text(service.title)
-                    .font(.callout)
-                    .foregroundColor(.primary)
-                    .lineLimit(2)
+                serviceTitle
                 
                 if !service.subtitle.isEmpty {
-                    Text(service.subtitle)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .lineLimit(2)
+                    serviceSubtitle
                 }
             }
             .padding(.vertical, 10)
@@ -42,5 +28,31 @@ struct ServiceCardView: View {
         .frame(height: 90)
         .background(.serviceCardBg)
         .cornerRadius(10)
+    }
+}
+
+extension ServiceCardView {
+    private var serviceIcon: some View {
+        Image(systemName: service.icon)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 30, height: 30)
+            .foregroundColor(Color.main)
+            .padding(10)
+            .padding(5)
+    }
+    
+    private var serviceTitle: some View {
+        Text(service.title)
+            .font(.callout)
+            .foregroundColor(.primary)
+            .lineLimit(2)
+    }
+    
+    private var serviceSubtitle: some View {
+        Text(service.subtitle)
+            .font(.subheadline)
+            .foregroundColor(.gray)
+            .lineLimit(2)
     }
 }

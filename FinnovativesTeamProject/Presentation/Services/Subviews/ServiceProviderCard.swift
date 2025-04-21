@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct ServiceProviderCard: View {
-    let provider: ServiceProvider
+    let provider: CompanyModel
     
     var body: some View {
         VStack {
-            Image(provider.logo)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 80, height: 80)
-                .padding()
+            AsyncImage(url: URL(string: provider.imageUrl)) { image in
+                image
+                    .resizable() 
+                    .scaledToFit()
+                    .frame(width: 80, height: 80)
+                    .padding()
+            } placeholder: {
+                ProgressView()
+                    .frame(width: 80, height: 80)
+                    .padding()
+            }
+
         }
         .frame(maxWidth: .infinity)
         .background(Color.white)
