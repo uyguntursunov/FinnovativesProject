@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 protocol HomeRouterProtocol {
     func openEventDetails()
@@ -19,7 +20,13 @@ final class HomeRouter {
 
 extension HomeRouter: HomeRouterProtocol {
     func openEventDetails() {
-        let viewControllerToPresent = GuidelinesViewController()
-        viewController?.present(viewControllerToPresent, animated: true)
+        DispatchQueue.main.async {
+            let viewModel = GuidelineViewModel()
+            let guidelineView = GuidelineView()
+                .environmentObject(viewModel)
+            let hostingController = UIHostingController(rootView: guidelineView)
+            hostingController.modalPresentationStyle = .fullScreen
+            self.viewController?.present(hostingController, animated: true)
+        }
     }
 }

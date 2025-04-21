@@ -146,9 +146,10 @@
 				CODE_SIGN_ENTITLEMENTS = FinnovativesTeamProject/FinnovativesTeamProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2PRTB3DVMF;
+				DEVELOPMENT_TEAM = 3N5GS86L85;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinnovativesTeamProject/Info.plist;
+				INFOPLIST_KEY_NFCReaderUsageDescription = "We need an access for NFC Scan to read from NFC tag.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -158,7 +159,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mekhriddin.FinnovativesTeamProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.akbarkhon.payme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -174,9 +175,10 @@
 				CODE_SIGN_ENTITLEMENTS = FinnovativesTeamProject/FinnovativesTeamProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2PRTB3DVMF;
+				DEVELOPMENT_TEAM = 3N5GS86L85;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinnovativesTeamProject/Info.plist;
+				INFOPLIST_KEY_NFCReaderUsageDescription = "We need an access for NFC Scan to read from NFC tag.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -186,7 +188,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mekhriddin.FinnovativesTeamProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.akbarkhon.payme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
