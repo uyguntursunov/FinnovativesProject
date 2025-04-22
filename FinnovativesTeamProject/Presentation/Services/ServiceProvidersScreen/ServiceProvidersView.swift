@@ -59,7 +59,6 @@ struct ServiceProvidersView: View {
                         .padding(.horizontal)
                     }
                 }
-                
             }
             .navigationTitle("Order NFC sticker")
             .navigationBarTitleDisplayMode(.inline)
@@ -95,8 +94,7 @@ extension ServiceProvidersView {
                 .onSubmit {
                     isSearchFieldFocused = false
                 }
-            
-            
+                        
             if !viewModel.searchText.isEmpty {
                 Button(action: {
                     viewModel.searchText = ""

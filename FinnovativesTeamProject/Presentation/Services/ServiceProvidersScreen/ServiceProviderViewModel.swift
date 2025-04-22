@@ -6,28 +6,14 @@
 //
 
 import Foundation
-import Combine
 
 class ServiceProviderViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     @Published var allCompanies: [CompanyModel] = []
     
-    
-    private let dataService = CompanyDataService()
-    private var cancellables = Set<AnyCancellable>()
-    
     init() {
-        downloadCompanyImage()
-    }
-
-    
-    func downloadCompanyImage() {
-        dataService.$allCompanies
-            .sink { [weak self] (returnedCompanies) in
-                self?.allCompanies = returnedCompanies
-            }
-            .store(in: &cancellables)
+        getCompanies()
     }
     
     var filteredServiceProviders: [CompanyModel] {
@@ -35,6 +21,17 @@ class ServiceProviderViewModel: ObservableObject {
             return allCompanies
         } else {
             return allCompanies.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        }
+    }
+    
+    func getCompanies() {
+        API.shared.getCompanies() { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.allCompanies = data
+                case .failure(let error):
+                print("Couldn't fetch companies from Network", error.localizedDescription)
+            }
         }
     }
 }

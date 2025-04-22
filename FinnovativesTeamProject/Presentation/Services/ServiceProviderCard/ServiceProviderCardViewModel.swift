@@ -13,18 +13,18 @@ final class ServiceProviderCardViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     
     private let company: CompanyModel
-    private let dataService: CompanyImageService
+    private let imageService: CompanyImageService
     private var cancellables = Set<AnyCancellable>()
     
     init(company: CompanyModel) {
         self.company = company
-        self.dataService = CompanyImageService(company: company)
+        self.imageService = CompanyImageService(company: company)
         self.addSubscribers()
         self.isLoading = true
     }
     
     func addSubscribers() {
-        dataService.$image
+        imageService.$image
             .sink { [weak self] (_) in
                 self?.isLoading = false
             } receiveValue: { [weak self] (returnedImage) in

@@ -201,7 +201,9 @@ extension OrderView {
     
     private var nextButton: some View {
         Button {
-            viewModel.postOrder(company: provider , phoneNumber: phoneNumberText, numberOfStickers: numberOfStickersText) { success in
+            viewModel.postOrder(company: provider,
+                                phoneNumber: phoneNumberText,
+                                numberOfStickers: numberOfStickersText) { success in
                 if success {
                     navigate = true
                 } else {

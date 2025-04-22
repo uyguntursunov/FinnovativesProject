@@ -35,7 +35,6 @@ class CompanyImageService {
     }
     
     func downloadCompanyImage() {
-//        let companiesURL = "https://67f606e7913986b16fa65016.mockapi.io/Businesses"
         guard let url = URL(string: company.imageUrl), !isLoadingImage else { return }
         
         imageSubscribtion = NetworkManager.download(url: url)
