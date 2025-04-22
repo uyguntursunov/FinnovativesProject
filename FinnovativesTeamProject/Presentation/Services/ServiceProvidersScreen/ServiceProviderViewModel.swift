@@ -9,40 +9,32 @@ import Foundation
 import Combine
 
 class ServiceProviderViewModel: ObservableObject {
-//    @Published var serviceProviders: [ServiceProvider] = [
-//        ServiceProvider(name: "EVOS", logo: "evosLogo"),
-//        ServiceProvider(name: "Korzinka", logo: "korzinkaLogo"),
-//        ServiceProvider(name: "Oqtepa Lavash", logo: "oqtepaLogo"),
-//        ServiceProvider(name: "Makro", logo: "makroLogo"),
-//        ServiceProvider(name: "Cambridge", logo: "cambridgeLogo"),
-//        ServiceProvider(name: "Street 77", logo: "street77Logo"),
-//        ServiceProvider(name: "Belissimo", logo: "belissimoLogo"),
-//    ]
     
     @Published var searchText: String = ""
+    @Published var allCompanies: [CompanyModel] = []
     
-    @Published var companies: [CompanyModel] = []
     
-    private let networkManager = NetworkManager()
+    private let dataService = CompanyDataService()
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        addSubscribers()
+        downloadCompanyImage()
     }
+
     
-    func addSubscribers() {
-        networkManager.$companies
+    func downloadCompanyImage() {
+        dataService.$allCompanies
             .sink { [weak self] (returnedCompanies) in
-                self?.companies = returnedCompanies
+                self?.allCompanies = returnedCompanies
             }
             .store(in: &cancellables)
     }
     
     var filteredServiceProviders: [CompanyModel] {
         if searchText.isEmpty {
-            return companies
+            return allCompanies
         } else {
-            return companies.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            return allCompanies.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         }
     }
 }

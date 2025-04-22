@@ -52,7 +52,7 @@ struct ServiceProvidersView: View {
                                                           rootPresenting: $rootPresenting)
                                 )
                                 {
-                                    ServiceProviderCard(provider: provider)
+                                    ServiceProviderCard(company: provider)
                                 }
                             }
                         }
