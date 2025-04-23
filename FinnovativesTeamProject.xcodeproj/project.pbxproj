@@ -6,6 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EF5373F42DB68867000AF3D5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		D5509BB02DA6BF2C00589794 /* FinnovativesTeamProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinnovativesTeamProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -68,6 +81,7 @@
 				D5509BAC2DA6BF2C00589794 /* Sources */,
 				D5509BAD2DA6BF2C00589794 /* Frameworks */,
 				D5509BAE2DA6BF2C00589794 /* Resources */,
+				EF5373F42DB68867000AF3D5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

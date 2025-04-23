@@ -10,6 +10,9 @@ import UIKit
 private let largeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .regular, scale: .default)
 private let mediumConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
 
+typealias SF = SFSymbols
+typealias IS = ImageStrings
+
 enum SFSymbols {
     static let house = UIImage(systemName: "house")
     static let arrowLeftRight = UIImage(systemName: "arrow.left.arrow.right")
@@ -42,4 +45,13 @@ enum SFSymbols {
     static let tv = UIImage(systemName: "tv")
     static let heart = UIImage(systemName: "heart")
     static let clockArrow = UIImage(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")
+}
+
+enum ImageStrings: String {
+    case xmark = "xmark"
+    case questionmark = "questionmark"
+    case chevronBackward = "chevron.backward"
+    case magnifyingglass = "magnifyingglass"
+    case xmarkCircleFill = "xmark.circle.fill"
+    case exclamationmarkCircle = "exclamationmark.circle"
 }

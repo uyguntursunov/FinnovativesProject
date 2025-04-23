@@ -11,7 +11,7 @@ final class BalanceHorizontalStackView: UIStackView {
     
     private lazy var eyeSlashButton: UIButton = {
         let button = UIButton()
-        button.setImage(SFSymbols.eyeSlashFill, for: .normal)
+        button.setImage(SF.eyeSlashFill, for: .normal)
         button.tintColor = .white
         button.addTarget(self, action: #selector(handleEyeTap), for: .touchUpInside)
         return button
@@ -30,7 +30,7 @@ final class BalanceHorizontalStackView: UIStackView {
     
     private lazy var eellipsisButton: UIButton = {
         let button = UIButton()
-        button.setImage(SFSymbols.ellipsis, for: .normal)
+        button.setImage(SF.ellipsis, for: .normal)
         button.tintColor = .white
         button.addTarget(self, action: #selector(handleEllipsisTap), for: .touchUpInside)
         return button
@@ -77,9 +77,9 @@ final class BalanceHorizontalStackView: UIStackView {
     @objc func handleEyeTap() {
         isBalanceVisible.toggle()
         if isBalanceVisible {
-            eyeSlashButton.setImage(SFSymbols.eyeSlashFill, for: .normal)
+            eyeSlashButton.setImage(SF.eyeSlashFill, for: .normal)
         } else {
-            eyeSlashButton.setImage(SFSymbols.eyeFill, for: .normal)
+            eyeSlashButton.setImage(SF.eyeFill, for: .normal)
         }
     }
     

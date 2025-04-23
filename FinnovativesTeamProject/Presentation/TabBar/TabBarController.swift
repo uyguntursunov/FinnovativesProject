@@ -8,11 +8,11 @@
 import UIKit
 
 let navControllers: [NavigationController] = [
-    NavigationController(title: Titles.main.rawValue, tabBarImage: SFSymbols.house),
-    NavigationController(title: Titles.transfer.rawValue, tabBarImage: SFSymbols.arrowLeftRight),
-    NavigationController(title: Titles.payment.rawValue, tabBarImage: SFSymbols.creditcard),
-    NavigationController(title: Titles.services.rawValue, tabBarImage: SFSymbols.squareGrid),
-    NavigationController(title: Titles.cashFlow.rawValue, tabBarImage: SFSymbols.clockArrow)
+    NavigationController(title: Titles.main.rawValue, tabBarImage: SF.house),
+    NavigationController(title: Titles.transfer.rawValue, tabBarImage: SF.arrowLeftRight),
+    NavigationController(title: Titles.payment.rawValue, tabBarImage: SF.creditcard),
+    NavigationController(title: Titles.services.rawValue, tabBarImage: SF.squareGrid),
+    NavigationController(title: Titles.cashFlow.rawValue, tabBarImage: SF.clockArrow)
 ]
 
 final class TabBarController: UITabBarController {

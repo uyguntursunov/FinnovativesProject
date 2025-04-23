@@ -37,14 +37,14 @@ final class HomeWorker: NSObject {
     ]
     
     private var paymentForServices: [PaymentForServiceModel] = [
-        PaymentForServiceModel(title: "Популярное", image: SFSymbols.listClipboard),
-        PaymentForServiceModel(title: "Мобильные операторы", image: SFSymbols.iphone),
-        PaymentForServiceModel(title: "Интернет-провайдеры", image: SFSymbols.network),
-        PaymentForServiceModel(title: "Коммунальные услуги", image: SFSymbols.bolt),
-        PaymentForServiceModel(title: "Госуслуги и штрафы ГУБДД", image: SFSymbols.buildingColumns),
-        PaymentForServiceModel(title: "Телефония", image: SFSymbols.phone),
-        PaymentForServiceModel(title: "Телевидение и онлайн-вещание", image: SFSymbols.tv),
-        PaymentForServiceModel(title: "Благотворительность", image: SFSymbols.heart)
+        PaymentForServiceModel(title: "Популярное", image: SF.listClipboard),
+        PaymentForServiceModel(title: "Мобильные операторы", image: SF.iphone),
+        PaymentForServiceModel(title: "Интернет-провайдеры", image: SF.network),
+        PaymentForServiceModel(title: "Коммунальные услуги", image: SF.bolt),
+        PaymentForServiceModel(title: "Госуслуги и штрафы ГУБДД", image: SF.buildingColumns),
+        PaymentForServiceModel(title: "Телефония", image: SF.phone),
+        PaymentForServiceModel(title: "Телевидение и онлайн-вещание", image: SF.tv),
+        PaymentForServiceModel(title: "Благотворительность", image: SF.heart)
     ]
 }
 

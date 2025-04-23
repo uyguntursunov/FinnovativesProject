@@ -13,14 +13,14 @@ final class HomeNavBarActionButtonsStackView: UIStackView {
     
     private let searchButton: UIButton = {
         let button = UIButton()
-        button.setImage(SFSymbols.magnifyingglass, for: .normal)
+        button.setImage(SF.magnifyingglass, for: .normal)
         button.tintColor = .white
         return button
     }()
     
     private lazy var notificationButton: UIButton = {
         let button = UIButton()
-        button.setImage(SFSymbols.bell, for: .normal)
+        button.setImage(SF.bell, for: .normal)
         button.tintColor = .white
         button.addTarget(self, action: #selector(didTapNotificationButton), for: .touchUpInside)
         return button
