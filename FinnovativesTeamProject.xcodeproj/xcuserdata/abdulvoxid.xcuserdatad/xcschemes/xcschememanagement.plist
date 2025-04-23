@@ -4,16 +4,23 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+<<<<<<< HEAD
 		<key>Data.xcscheme_^#shared#^_</key>
+=======
+		<key>FinnovativesTeamProject.xcscheme_^#shared#^_</key>
+>>>>>>> 43d13ff (ServiceView is added)
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+<<<<<<< HEAD
 		<key>FinnovativesTeamProject.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+=======
+>>>>>>> 43d13ff (ServiceView is added)
 	</dict>
 </dict>
 </plist>
