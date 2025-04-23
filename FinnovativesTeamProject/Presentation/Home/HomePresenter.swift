@@ -27,11 +27,7 @@ extension HomePresenter: HomePresenterProtocol {
     
     func presentNFCResult(_ response: HomeModels.ScanNFC.Response) {
         var viewModel: HomeModels.ScanNFC.ViewModel
-        guard let urlString = response.urlString, let url = URL(string: ["https://", urlString].joined()) else {
-            return
-        }
-        
-        viewModel = HomeModels.ScanNFC.ViewModel(urlToOpen: url,
+        viewModel = HomeModels.ScanNFC.ViewModel(urlToOpen: response.urlToOpen,
                                                  errorMessage: response.error?.localizedDescription)
         if let url = viewModel.urlToOpen {
             view?.displayNFCResult(url)

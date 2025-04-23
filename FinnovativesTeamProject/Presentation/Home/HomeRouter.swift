@@ -13,7 +13,7 @@ protocol HomeRouterProtocol {
 }
 
 final class HomeRouter {
-    weak var viewController: HomeViewController?
+    weak var source: HomeViewController?
 }
 
 // MARK: - HomeRouterProtocol
@@ -26,7 +26,7 @@ extension HomeRouter: HomeRouterProtocol {
                 .environmentObject(viewModel)
             let hostingController = UIHostingController(rootView: guidelineView)
             hostingController.modalPresentationStyle = .fullScreen
-            self.viewController?.present(hostingController, animated: true)
+            self.source?.present(hostingController, animated: true)
         }
     }
 }

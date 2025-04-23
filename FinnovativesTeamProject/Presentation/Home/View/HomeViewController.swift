@@ -144,7 +144,7 @@ final class HomeViewController: UIViewController {
                 alignment: .top
             )
             
-            switch SectionType(rawValue: sectionIndex) {
+            switch HomeSectionType(rawValue: sectionIndex) {
             case .header:
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 let groupSize = NSCollectionLayoutSize(
@@ -278,10 +278,10 @@ extension HomeViewController: HomeViewProtocol {
 // MARK: - UICollectionViewDataSource
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int { SectionType.allCases.count }
+    func numberOfSections(in collectionView: UICollectionView) -> Int { HomeSectionType.allCases.count }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch SectionType(rawValue: section) {
+        switch HomeSectionType(rawValue: section) {
         case .header: return 1
         case .events: return events.count
         case .finServices: return financialServices.count
@@ -291,7 +291,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let sectionType = SectionType(rawValue: indexPath.section) else {
+        guard let sectionType = HomeSectionType(rawValue: indexPath.section) else {
             return UICollectionViewCell()
         }
         
@@ -323,7 +323,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch SectionType(rawValue: indexPath.section) {
+        switch HomeSectionType(rawValue: indexPath.section) {
         case .events:
             self.router?.openEventDetails()
         default:
@@ -337,7 +337,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionReusableView()
         }
         
-        if let sectionTitle = SectionType(rawValue: indexPath.section)?.sectionTitle {
+        if let sectionTitle = HomeSectionType(rawValue: indexPath.section)?.sectionTitle {
             header.configure(with: sectionTitle)
         }
         

@@ -35,7 +35,9 @@ extension HomeInteractor: HomeInteractorProtocol {
             let response: HomeModels.FetchContent.Response
             switch result {
             case .success(let data):
-                response = .init(events: data.events, financialServices: data.financialServices, paymentForServices: data.paymentForServices)
+                response = .init(events: data.events,
+                                 financialServices: data.financialServices,
+                                 paymentForServices: data.paymentForServices)
             case .failure(let error):
                 response = .init(events: [], financialServices: [], paymentForServices: [])
                 print("Couldn't fetch home content: \(error.localizedDescription)")
@@ -47,7 +49,8 @@ extension HomeInteractor: HomeInteractorProtocol {
     
     func onScanNFC() {
         worker.scanNFC() { [weak self] result in
-            let response = HomeModels.ScanNFC.Response(urlString: result.urlString, error: result.error)
+            let response = HomeModels.ScanNFC.Response(urlToOpen: result.urlToOpen,
+                                                       error: result.error)
             self?.presentor.presentNFCResult(response)
         }
     }

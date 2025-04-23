@@ -29,7 +29,7 @@ enum HomeModels {
         struct Request {}
         
         struct Response {
-            let urlString: String?
+            let urlToOpen: URL?
             let error: Error?
         }
         

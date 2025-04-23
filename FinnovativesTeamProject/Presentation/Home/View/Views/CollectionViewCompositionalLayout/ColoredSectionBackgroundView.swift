@@ -13,7 +13,7 @@ final class ColoredSectionBackgroundView: UICollectionReusableView {
     }
     
     func configure(with section: Int) {
-        switch SectionType(rawValue: section) {
+        switch HomeSectionType(rawValue: section) {
         case .header:
             backgroundColor = .clear
         case .finServices:

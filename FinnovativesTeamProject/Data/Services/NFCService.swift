@@ -1,0 +1,74 @@
+//
+//  NFCService.swift
+//  FinnovativesTeamProject
+//
+//  Created by Uygun Tursunov on 22/04/25.
+//
+
+import Foundation
+import CoreNFC
+
+enum NFCError: Error {
+    case scanningNotSupported
+    case invalidURL
+}
+
+protocol NFCServiceProtocol {
+    func scanNFC(completion: @escaping (Result<URL, Error>) -> Void)
+}
+
+final class NFCService: NSObject {
+    private var session: NFCNDEFReaderSession?
+    private var completion: ((Result<URL, Error>) -> Void)?
+}
+
+// MARK: - NFCServiceProtocol
+
+extension NFCService: NFCServiceProtocol {
+    func scanNFC(completion: @escaping (Result<URL, any Error>) -> Void) {
+        guard NFCNDEFReaderSession.readingAvailable else {
+            completion(.failure(NFCError.scanningNotSupported))
+            return
+        }
+        
+        self.completion = completion
+        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
+        session?.alertMessage = "Hold your iPhone near Payme tag to make payment."
+        session?.begin()
+    }
+}
+
+// MARK: - NFCNDEFReaderSessionDelegate
+
+extension NFCService: NFCNDEFReaderSessionDelegate {
+    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
+        DispatchQueue.main.async {
+            for message in messages {
+                for record in message.records {
+                    if record.typeNameFormat == .nfcWellKnown, record.type == Data("U".utf8) {
+                        guard !record.payload.isEmpty else { continue }
+                        let payload = record.payload.dropFirst()
+                        if let urlString = String(data: payload, encoding: .utf8),
+                           let url = URL(string: ["https://", urlString].joined()) {
+                            self.completion?(.success(url))
+                            session.invalidate()
+                            return
+                        }
+                    }
+                }
+            }
+            session.invalidate()
+        }
+    }
+    
+    func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) { }
+    
+    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
+        if let readerError = error as? NFCReaderError,
+           readerError.code != .readerSessionInvalidationErrorFirstNDEFTagRead &&
+            readerError.code != .readerSessionInvalidationErrorUserCanceled {
+            self.completion?(.failure(error))
+        }
+        self.session = nil
+    }
+}

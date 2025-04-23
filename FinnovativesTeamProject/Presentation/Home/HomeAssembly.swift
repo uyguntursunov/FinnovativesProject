@@ -9,7 +9,7 @@ import UIKit
 
 final class HomeAssembly {
     static func createHomeViewController() -> HomeViewController {
-        let worker = HomeWorker()
+        let worker = HomeWorker(nfcService: NFCService())
         let router = HomeRouter()
         let presentor = HomePresenter()
         let interactor = HomeInteractor(worker: worker, presentor: presentor)
@@ -19,7 +19,7 @@ final class HomeAssembly {
         viewController.interactor = interactor
         
         presentor.view = viewController
-        router.viewController = viewController
+        router.source = viewController
         
         return viewController
     }

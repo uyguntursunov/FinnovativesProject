@@ -18,9 +18,11 @@ protocol HomeWorkerProtocol {
 }
 
 final class HomeWorker: NSObject {
+    let nfcService: NFCServiceProtocol
     
-    private var session: NFCNDEFReaderSession?
-    private var completion: ((HomeModels.ScanNFC.Response) -> Void)?
+    init(nfcService: NFCServiceProtocol) {
+        self.nfcService = nfcService
+    }
     
     private var events: [EventModel] = [
         EventModel(image: .event),
@@ -57,49 +59,14 @@ extension HomeWorker: HomeWorkerProtocol {
     }
     
     func scanNFC(completion: @escaping (HomeModels.ScanNFC.Response) -> Void) {
-        guard NFCNDEFReaderSession.readingAvailable else {
-            completion(HomeModels.ScanNFC.Response(urlString: nil, error: NFCError.scanningNotSupported))
-            return
-        }
-        
-        self.completion = completion
-        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
-        session?.alertMessage = "Hold your iPhone near Payme tag to make payment."
-        session?.begin()
-    }
-}
-
-// MARK: - NFCNDEFReaderSessionDelegate
-
-extension HomeWorker: NFCNDEFReaderSessionDelegate {
-    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
-        DispatchQueue.main.async {
-            for message in messages {
-                for record in message.records {
-                    if record.typeNameFormat == .nfcWellKnown, record.type == Data("U".utf8) {
-                        guard !record.payload.isEmpty else { continue }
-                        let payload = record.payload.dropFirst()
-                        if let urlString = String(data: payload, encoding: .utf8) {
-                            self.completion?(HomeModels.ScanNFC.Response(urlString: urlString, error: nil))
-                            session.invalidate()
-                            return
-                        }
-                    }
-                }
+        nfcService.scanNFC { result in
+            switch result {
+            case .success(let data):
+                completion(.init(urlToOpen: data, error: nil))
+            case .failure(let error):
+                completion(.init(urlToOpen: nil, error: error))
             }
-            session.invalidate()
         }
-    }
-    
-    func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) { }
-    
-    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
-        if let readerError = error as? NFCReaderError,
-           readerError.code != .readerSessionInvalidationErrorFirstNDEFTagRead &&
-            readerError.code != .readerSessionInvalidationErrorUserCanceled {
-            self.completion?(HomeModels.ScanNFC.Response(urlString: nil, error: error))
-        }
-        self.session = nil
     }
 }
 
