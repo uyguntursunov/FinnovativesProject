@@ -5,13 +5,13 @@
 //  Created by Abdulvoxid on 13/04/25.
 //
 
-import Foundation
+import SwiftUI
 
 struct Service: Identifiable {
     let id = UUID()
-    let icon: String
-    let title: String
-    let subtitle: String
+    let image: UIImage?
+    let title: ServiceTitles
+    let subtitle: ServiceSubtitles
     let type: ServiceType
 }
 

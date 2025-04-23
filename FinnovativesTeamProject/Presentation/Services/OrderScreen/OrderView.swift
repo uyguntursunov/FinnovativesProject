@@ -51,7 +51,7 @@ struct OrderView: View {
                 VStack(spacing: 4) {
                     
                     numberOfNFCTextField
-                        
+                    
                     
                     if viewModel.showWarningText(numberOfStickersText) {
                         warningTextWithImage
@@ -75,7 +75,7 @@ struct OrderView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        dismiss() 
+                        dismiss()
                     } label: {
                         Image(systemName: "chevron.backward")
                             .foregroundColor(.gray)
@@ -101,7 +101,7 @@ extension OrderView {
                 .background(.white)
                 .frame(width: 100, height: 80)
         }
-            
+        
     }
     
     private var companyName: some View {
@@ -201,18 +201,21 @@ extension OrderView {
     
     private var nextButton: some View {
         Button {
-            viewModel.postOrder(company: provider,
-                                phoneNumber: phoneNumberText,
-                                numberOfStickers: numberOfStickersText) { success in
+            guard let numberOfStickers = Int(numberOfStickersText) else { return }
+            let model = OrderRequestModel(comapnyName: provider.name,
+                                          companyPhone: phoneNumberText,
+                                          numberOfNFCStickers: numberOfStickers,
+                                          companyID: provider.id)
+            
+            viewModel.postOrder(model: model) { success in
                 if success {
                     navigate = true
                 } else {
                     print("Failed to send order")
                 }
             }
-           
         } label: {
-            Text("Next")
+            Text("Confirm")
                 .font(.headline)
                 .foregroundColor(isButtonEnabled ? .white : .disabledButtonText)
                 .frame(maxWidth: .infinity)
@@ -223,5 +226,4 @@ extension OrderView {
         .frame(height: 54)
         .disabled(!isButtonEnabled)
     }
-
 }

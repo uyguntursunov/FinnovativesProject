@@ -1,5 +1,5 @@
 //
-//  ServiceCard.swift
+//  SingleServiceView.swift
 //  FinnovativesTeamProject
 //
 //  Created by Abdulvoxid on 13/04/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ServiceCardView: View {
+struct SingleServiceView: View {
     let service: Service
     
     var body: some View {
@@ -17,7 +17,7 @@ struct ServiceCardView: View {
             VStack(alignment: .leading, spacing: 5){
                 serviceTitle
                 
-                if !service.subtitle.isEmpty {
+                if !service.subtitle.rawValue.isEmpty {
                     serviceSubtitle
                 }
             }
@@ -31,26 +31,25 @@ struct ServiceCardView: View {
     }
 }
 
-extension ServiceCardView {
+extension SingleServiceView {
     private var serviceIcon: some View {
-        Image(systemName: service.icon)
+        Image(uiImage: service.image!)
             .resizable()
             .scaledToFit()
             .frame(width: 30, height: 30)
-            .foregroundColor(Color.main)
-            .padding(10)
-            .padding(5)
+            .foregroundColor(.main)
+            .padding(15)
     }
     
     private var serviceTitle: some View {
-        Text(service.title)
+        Text(service.title.rawValue)
             .font(.callout)
             .foregroundColor(.primary)
             .lineLimit(2)
     }
     
     private var serviceSubtitle: some View {
-        Text(service.subtitle)
+        Text(service.subtitle.rawValue)
             .font(.subheadline)
             .foregroundColor(.gray)
             .lineLimit(2)

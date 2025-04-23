@@ -1,5 +1,5 @@
 //
-//  ServiceView.swift
+//  ServicesView.swift
 //  FinnovativesTeamProject
 //
 //  Created by Abdulvoxid on 13/04/25.
@@ -13,22 +13,20 @@ struct ServicesView: View {
     
     var body: some View {
         ScrollView {
-            
-            
             VStack(spacing: 10) {
                 ForEach(viewModel.services) { service in
                     if service.type == .nfcSticker
-                {
+                    {
                         NavigationLink(
                             destination:
-                                ServiceProvidersView(rootPresenting: $rootPresenting)
+                                CompaniesView(rootPresenting: $rootPresenting)
                             ,
                             isActive: $rootPresenting
                         ){
-                            ServiceCardView(service: service)
+                            SingleServiceView(service: service)
                         }
                     } else {
-                        ServiceCardView(service: service)
+                        SingleServiceView(service: service)
                     }
                 }
             }

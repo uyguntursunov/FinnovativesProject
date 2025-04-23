@@ -17,7 +17,6 @@ struct SuccessView: View {
                 .ignoresSafeArea()
             
             VStack {
-                
                 Spacer()
                 checkmarkImage
                 

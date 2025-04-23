@@ -1,5 +1,5 @@
 //
-//  ServiceProvidersView.swift
+//  CompaniesView.swift
 //  FinnovativesTeamProject
 //
 //  Created by Abdulvoxid on 13/04/25.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ServiceProvidersView: View {
-    @StateObject private var viewModel = ServiceProviderViewModel()
+struct CompaniesView: View {
+    @StateObject private var viewModel = CompaniesViewModel()
     @Binding var rootPresenting: Bool
     @FocusState private var isSearchFieldFocused: Bool
     
@@ -19,7 +19,6 @@ struct ServiceProvidersView: View {
     ]
     
     var body: some View {
-        
         ZStack{
             Color.background
                 .ignoresSafeArea()
@@ -29,7 +28,6 @@ struct ServiceProvidersView: View {
                         isSearchFieldFocused = false
                     }
                 }
-            
             VStack(spacing: 0) {
                 
                 searchBar
@@ -44,7 +42,6 @@ struct ServiceProvidersView: View {
                     .padding(.top)
                     
                     ScrollView {
-                        // Grid of Serices
                         LazyVGrid(columns: columns, spacing: 10) {
                             ForEach(viewModel.filteredServiceProviders) { provider in
                                 NavigationLink(destination:
@@ -52,7 +49,7 @@ struct ServiceProvidersView: View {
                                                           rootPresenting: $rootPresenting)
                                 )
                                 {
-                                    ServiceProviderCard(company: provider)
+                                    CompanyCellView(company: provider)
                                 }
                             }
                         }
@@ -78,7 +75,7 @@ struct ServiceProvidersView: View {
     }
 }
 
-extension ServiceProvidersView {
+extension CompaniesView {
     private var searchBar: some View {
         HStack(spacing: 5) {
             Image(systemName: "magnifyingglass")

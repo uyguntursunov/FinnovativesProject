@@ -35,6 +35,35 @@ enum SectionType: Int, CaseIterable {
     }
 }
 
+enum ServiceTitles: String {
+    case credit = "Credit"
+    case paymePlus = "payme plus"
+    case deferredPayment = "Deferred Payment"
+    case paymeTickets = "payme tickets"
+    case paymeAvia = "payme avia"
+    case certificatesAndGovernmentServices = "Certificates and Government Services"
+    case reminders = "Reminders"
+    case accountPayment = "Account Payment"
+    case notificationsAboutTrafficPoliceFines = "Notifications about Traffic Police Fines"
+    case paymeGoals = "Payme Goals"
+    case lifeSituations = "Life Situations"
+    case charity = "Charity"
+    case orderNFCSticker = "Order NFC Sticker"
+}
+
+enum ServiceSubtitles: String {
+    case getOnlineCredit = "Get an online credit from TBC BANK"
+    case oneSubscriptionManyOpportunities = "One subscription — many opportunities"
+    case payNowRepayLater = "Pay now, repay later"
+    case purchaseTickets = "Purchase tickets for various events"
+    case cashbackWithSalonCard = "5% cashback when paying for tickets with Salon Card"
+    case empty = ""
+    case paymentNotifications = "For receiving payment notifications"
+    case saveForGoals = "A simple way to save for your goals"
+    case guideForLifeEvents = "Guide for important life events"
+    case orderNFCSticker = "Order NFC sticker for your business"
+}
+
 enum ServiceType: CaseIterable {
     case credit
     case plus
@@ -50,3 +79,4 @@ enum ServiceType: CaseIterable {
     case charity
     case nfcSticker
 }
+

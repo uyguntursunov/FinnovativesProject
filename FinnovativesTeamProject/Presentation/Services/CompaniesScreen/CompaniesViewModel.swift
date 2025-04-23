@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ServiceProviderViewModel: ObservableObject {
+class CompaniesViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     @Published var allCompanies: [CompanyModel] = []
@@ -25,11 +25,11 @@ class ServiceProviderViewModel: ObservableObject {
     }
     
     func getCompanies() {
-        API.shared.getCompanies() { [weak self] result in
+        NetworkManager.shared.getCompanies() { [weak self] result in
             switch result {
             case .success(let data):
                 self?.allCompanies = data
-                case .failure(let error):
+            case .failure(let error):
                 print("Couldn't fetch companies from Network", error.localizedDescription)
             }
         }

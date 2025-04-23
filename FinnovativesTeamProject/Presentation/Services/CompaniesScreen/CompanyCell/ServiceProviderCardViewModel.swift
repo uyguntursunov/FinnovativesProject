@@ -31,6 +31,5 @@ final class ServiceProviderCardViewModel: ObservableObject {
                 self?.image = returnedImage
             }
             .store(in: &cancellables)
-
     }
 }

@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  CompanyCellView.swift
 //  FinnovativesTeamProject
 //
 //  Created by Abdulvoxid on 13/04/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ServiceProviderCard: View {
+struct CompanyCellView: View {
    
     @StateObject var vm: ServiceProviderCardViewModel
     
