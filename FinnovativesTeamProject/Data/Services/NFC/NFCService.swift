@@ -8,31 +8,31 @@
 import Foundation
 import CoreNFC
 
-enum NFCError: Error {
-    case scanningNotSupported
-    case invalidURL
-}
-
 protocol NFCServiceProtocol {
     func scanNFC(completion: @escaping (Result<URL, Error>) -> Void)
 }
 
 final class NFCService: NSObject {
-    private var session: NFCNDEFReaderSession?
+    private var session: NFCNDEFReaderSessionProtocol?
+    private let sessionFactory: NFCSessionFactoryProtocol
     private var completion: ((Result<URL, Error>) -> Void)?
+    
+    init(factory: NFCSessionFactoryProtocol = NFCSessionFactory()) {
+        self.sessionFactory = factory
+    }
 }
 
 // MARK: - NFCServiceProtocol
 
 extension NFCService: NFCServiceProtocol {
-    func scanNFC(completion: @escaping (Result<URL, any Error>) -> Void) {
+    func scanNFC(completion: @escaping (Result<URL, Error>) -> Void) {
         guard NFCNDEFReaderSession.readingAvailable else {
             completion(.failure(NFCError.scanningNotSupported))
             return
         }
         
         self.completion = completion
-        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
+        session = sessionFactory.createSession(delegate: self)
         session?.alertMessage = "Hold your iPhone near Payme tag to make payment."
         session?.begin()
     }

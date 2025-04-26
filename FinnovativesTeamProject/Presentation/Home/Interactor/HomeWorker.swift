@@ -18,34 +18,25 @@ protocol HomeWorkerProtocol {
 }
 
 final class HomeWorker: NSObject {
-    let nfcService: NFCServiceProtocol
+    private let fetchEventsUseCase: FetchEventsUseCaseProtocol
+    private let fetchFinancialServicesUseCase: FetchFinancialServicesUseCaseProtocol
+    private let fetchPaymentForServicesUseCase: FetchPaymentForServicesUseCaseProtocol
+    private let nfcService: NFCServiceProtocol
+    private var events: [EventModel] = []
+    private var financialServices: [FinancialServiceModel] = []
+    private var paymentForServices: [PaymentForServiceModel] = []
     
-    init(nfcService: NFCServiceProtocol) {
+    init(
+        fetchEventsUseCase: FetchEventsUseCaseProtocol = FetchEventsUseCase(),
+        fetchFinancialServicesUseCase: FetchFinancialServicesUseCaseProtocol = FetchFinancialServicesUseCase(),
+        fetchPaymentForServicesUseCase: FetchPaymentForServicesUseCaseProtocol = FetchPaymentForServicesUseCase(),
+        nfcService: NFCServiceProtocol
+    ) {
+        self.fetchEventsUseCase = fetchEventsUseCase
+        self.fetchFinancialServicesUseCase = fetchFinancialServicesUseCase
+        self.fetchPaymentForServicesUseCase = fetchPaymentForServicesUseCase
         self.nfcService = nfcService
     }
-    
-    private var events: [EventModel] = [
-        EventModel(image: .event),
-        EventModel(image: .event),
-        EventModel(image: .event),
-        EventModel(image: .event)
-    ]
-    
-    private var financialServices: [FinancialServiceModel] = [
-        FinancialServiceModel(title: "Transfer funds", image: .service),
-        FinancialServiceModel(title: "Loan from TBC Bank", image: .service)
-    ]
-    
-    private var paymentForServices: [PaymentForServiceModel] = [
-        PaymentForServiceModel(title: "Популярное", image: SF.listClipboard),
-        PaymentForServiceModel(title: "Мобильные операторы", image: SF.iphone),
-        PaymentForServiceModel(title: "Интернет-провайдеры", image: SF.network),
-        PaymentForServiceModel(title: "Коммунальные услуги", image: SF.bolt),
-        PaymentForServiceModel(title: "Госуслуги и штрафы ГУБДД", image: SF.buildingColumns),
-        PaymentForServiceModel(title: "Телефония", image: SF.phone),
-        PaymentForServiceModel(title: "Телевидение и онлайн-вещание", image: SF.tv),
-        PaymentForServiceModel(title: "Благотворительность", image: SF.heart)
-    ]
 }
 
 // MARK: - HomeWorkerProtocol
@@ -55,7 +46,29 @@ extension HomeWorker: HomeWorkerProtocol {
         request: HomeModels.FetchContent.Request,
         completion: @escaping (Result<HomeModels.FetchContent.Response, any Error>) -> Void
     ) {
-        completion(.success(HomeModels.FetchContent.Response(events: events, financialServices: financialServices, paymentForServices: paymentForServices)))
+        fetchEventsUseCase.execute { [weak self] entities in
+            for entity in entities {
+                self?.events.append(EventModel(image: entity.image))
+            }
+        }
+        
+        fetchFinancialServicesUseCase.execute { [weak self] entities in
+            for entity in entities {
+                self?.financialServices.append(FinancialServiceModel(title: entity.title,
+                                                                     image: entity.image))
+            }
+        }
+        
+        fetchPaymentForServicesUseCase.execute { [weak self] entities in
+            for entity in entities {
+                self?.paymentForServices.append(PaymentForServiceModel(title: entity.title,
+                                                                       image: entity.image))
+            }
+        }
+        
+        completion(.success(HomeModels.FetchContent.Response(events: events,
+                                                             financialServices: financialServices,
+                                                             paymentForServices: paymentForServices)))
     }
     
     func scanNFC(completion: @escaping (HomeModels.ScanNFC.Response) -> Void) {

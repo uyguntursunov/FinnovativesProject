@@ -7,11 +7,15 @@
 
 import UIKit
 
-private let largeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .regular, scale: .default)
-private let mediumConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .default)
+internal typealias SF = SFSymbols
+internal typealias IS = ImageStrings
 
-typealias SF = SFSymbols
-typealias IS = ImageStrings
+fileprivate let largeConfig = UIImage.SymbolConfiguration(pointSize: 30,
+                                                          weight: .regular,
+                                                          scale: .default)
+fileprivate let mediumConfig = UIImage.SymbolConfiguration(pointSize: 20,
+                                                           weight: .regular,
+                                                           scale: .default)
 
 enum SFSymbols {
     static let house = UIImage(systemName: "house")

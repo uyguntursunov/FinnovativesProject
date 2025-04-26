@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - Display Error Alert
+
 extension UIViewController {
     func displayErrorAlert(_ message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)

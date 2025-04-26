@@ -6,6 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		D5D8BF852DBA96AD00F8BD98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5509BA82DA6BF2C00589794 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5509BAF2DA6BF2C00589794;
+			remoteInfo = FinnovativesTeamProject;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		EF5373F42DB68867000AF3D5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -21,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		D5509BB02DA6BF2C00589794 /* FinnovativesTeamProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinnovativesTeamProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5D8BF812DBA96AD00F8BD98 /* FinnovativesTeamProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinnovativesTeamProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -42,10 +53,22 @@
 			path = FinnovativesTeamProject;
 			sourceTree = "<group>";
 		};
+		D5D8BF822DBA96AD00F8BD98 /* FinnovativesTeamProjectTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = FinnovativesTeamProjectTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D5509BAD2DA6BF2C00589794 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D8BF7E2DBA96AD00F8BD98 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				D5509BB22DA6BF2C00589794 /* FinnovativesTeamProject */,
+				D5D8BF822DBA96AD00F8BD98 /* FinnovativesTeamProjectTests */,
 				D5509BB12DA6BF2C00589794 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				D5509BB02DA6BF2C00589794 /* FinnovativesTeamProject.app */,
+				D5D8BF812DBA96AD00F8BD98 /* FinnovativesTeamProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +122,29 @@
 			productReference = D5509BB02DA6BF2C00589794 /* FinnovativesTeamProject.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D5D8BF802DBA96AD00F8BD98 /* FinnovativesTeamProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5D8BF872DBA96AD00F8BD98 /* Build configuration list for PBXNativeTarget "FinnovativesTeamProjectTests" */;
+			buildPhases = (
+				D5D8BF7D2DBA96AD00F8BD98 /* Sources */,
+				D5D8BF7E2DBA96AD00F8BD98 /* Frameworks */,
+				D5D8BF7F2DBA96AD00F8BD98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5D8BF862DBA96AD00F8BD98 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D5D8BF822DBA96AD00F8BD98 /* FinnovativesTeamProjectTests */,
+			);
+			name = FinnovativesTeamProjectTests;
+			packageProductDependencies = (
+			);
+			productName = FinnovativesTeamProjectTests;
+			productReference = D5D8BF812DBA96AD00F8BD98 /* FinnovativesTeamProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -109,6 +157,10 @@
 				TargetAttributes = {
 					D5509BAF2DA6BF2C00589794 = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					D5D8BF802DBA96AD00F8BD98 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = D5509BAF2DA6BF2C00589794;
 					};
 				};
 			};
@@ -127,12 +179,20 @@
 			projectRoot = "";
 			targets = (
 				D5509BAF2DA6BF2C00589794 /* FinnovativesTeamProject */,
+				D5D8BF802DBA96AD00F8BD98 /* FinnovativesTeamProjectTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D5509BAE2DA6BF2C00589794 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D8BF7F2DBA96AD00F8BD98 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -149,7 +209,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D5D8BF7D2DBA96AD00F8BD98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5D8BF862DBA96AD00F8BD98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5509BAF2DA6BF2C00589794 /* FinnovativesTeamProject */;
+			targetProxy = D5D8BF852DBA96AD00F8BD98 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D5509BC42DA6BF2D00589794 /* Debug */ = {
@@ -329,6 +404,40 @@
 			};
 			name = Release;
 		};
+		D5D8BF882DBA96AD00F8BD98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uyguntursunov.FinnovativesTeamProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinnovativesTeamProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FinnovativesTeamProject";
+			};
+			name = Debug;
+		};
+		D5D8BF892DBA96AD00F8BD98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uyguntursunov.FinnovativesTeamProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinnovativesTeamProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FinnovativesTeamProject";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -346,6 +455,15 @@
 			buildConfigurations = (
 				D5509BC42DA6BF2D00589794 /* Debug */,
 				D5509BC52DA6BF2D00589794 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5D8BF872DBA96AD00F8BD98 /* Build configuration list for PBXNativeTarget "FinnovativesTeamProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D8BF882DBA96AD00F8BD98 /* Debug */,
+				D5D8BF892DBA96AD00F8BD98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

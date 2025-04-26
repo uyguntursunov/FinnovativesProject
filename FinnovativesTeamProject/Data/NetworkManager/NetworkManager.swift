@@ -20,6 +20,7 @@ final class NetworkManager {
 }
 
 // MARK: - GET COMPANIES
+
 extension NetworkManager {
     func getCompanies(completion: @escaping (Result<[CompanyModel], Error>) -> Void) {
         guard let url = URL(string: API_URL_BUSINESSES) else { return }
@@ -37,6 +38,7 @@ extension NetworkManager {
 }
 
 // MARK: - POST ORDER
+
 extension NetworkManager {
     func postOrder(model: OrderRequestModel, completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: API_URL_REQUESTS) else { return }
@@ -73,7 +75,8 @@ extension NetworkManager {
     }
 }
 
-// MARK: - GET COMPANY IMAGES
+// MARK: - GET COMPANY IMAGE
+
 extension NetworkManager {
     func getCompanyImage(url: String, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = URL(string: url) else { return }

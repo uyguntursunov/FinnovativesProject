@@ -21,7 +21,6 @@ class CompanyImageService {
     
     func getCompanyImage() {
         guard !isLoadingImage else { return }
-        
         if let savedImage = fileManager.getImage(imageName: company.id, folderName: folderName) {
             image = savedImage
             print("Image from filemanager")

@@ -48,7 +48,6 @@ struct GuidelineCardView: View {
         }
     }
     
-    
     // MARK: - Private Helpers
     
     private func createDragGesture() -> some Gesture {

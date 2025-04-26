@@ -7,16 +7,7 @@
 
 import UIKit
 
-let navControllers: [NavigationController] = [
-    NavigationController(title: Titles.main.rawValue, tabBarImage: SF.house),
-    NavigationController(title: Titles.transfer.rawValue, tabBarImage: SF.arrowLeftRight),
-    NavigationController(title: Titles.payment.rawValue, tabBarImage: SF.creditcard),
-    NavigationController(title: Titles.services.rawValue, tabBarImage: SF.squareGrid),
-    NavigationController(title: Titles.cashFlow.rawValue, tabBarImage: SF.clockArrow)
-]
-
 final class TabBarController: UITabBarController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,27 +24,29 @@ final class TabBarController: UITabBarController {
     }
     
     private func configureNavControllers() {
-        let homeVC = HomeAssembly.createHomeViewController()
-        let transferVC = TransferAssembly.createTransferViewController()
-        let paymentVC = PaymentAssembly.createPaymentViewController()
-        let servicesVC = ServicesAssembly.createServicesViewController()
-        let cashFlowVC = CashFlowAssembly.createCashFlowViewController()
-        
-        let viewControllers = [
-            UINavigationController(rootViewController: homeVC),
-            UINavigationController(rootViewController: transferVC),
-            UINavigationController(rootViewController: paymentVC),
-            UINavigationController(rootViewController: servicesVC),
-            UINavigationController(rootViewController: cashFlowVC)
+        let viewControllers: [UIViewController] = [
+            createNavController(for: .main,
+                                rootViewController: HomeAssembly.createHomeViewController()),
+            createNavController(for: .transfer,
+                                rootViewController: TransferAssembly.createTransferViewController()),
+            createNavController(for: .payment,
+                                rootViewController: PaymentAssembly.createPaymentViewController()),
+            createNavController(for: .services,
+                                rootViewController: ServicesAssembly.createServicesViewController()),
+            createNavController(for: .cashFlow,
+                                rootViewController: CashFlowAssembly.createCashFlowViewController())
         ]
-        
-        for (index, vc) in viewControllers.enumerated() {
-            let title = navControllers[index].title
-            if let tabBarImage = navControllers[index].tabBarImage {
-                vc.tabBarItem = UITabBarItem(title: title, image: tabBarImage, tag: index)
-            }
-        }
         
         setViewControllers(viewControllers, animated: true)
     }
+    
+    private func createNavController(for navController: NavController,
+                                     rootViewController: UIViewController) -> UINavigationController
+    {
+        let navigationController = UINavigationController(rootViewController: rootViewController)
+        navigationController.tabBarItem.title = navController.title
+        navigationController.tabBarItem.image = navController.tabBarIcon
+        return navigationController
+    }
+    
 }
