@@ -48,5 +48,4 @@ final class TabBarController: UITabBarController {
         navigationController.tabBarItem.image = navController.tabBarIcon
         return navigationController
     }
-    
 }

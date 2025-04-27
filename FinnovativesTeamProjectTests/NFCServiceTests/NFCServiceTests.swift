@@ -11,43 +11,41 @@ import XCTest
 import CoreNFC
 @testable import FinnovativesTeamProject
 
-final class MockSession: NFCNDEFReaderSessionProtocol {
-    var alertMessage: String = "Hold your iPhone near Payme tag to make payment."
-    var didBegin = false
-    var didInvalidate = false
-
-    func begin() {
-        didBegin = true
-    }
-
-    func invalidate() {
-        didInvalidate = true
-    }
-}
-
-final class MockFactory: NFCSessionFactoryProtocol {
-    let mockSession = MockSession()
-
-    func createSession(delegate: NFCNDEFReaderSessionDelegate) -> NFCNDEFReaderSessionProtocol {
-        return mockSession
-    }
-}
-
 final class NFCServiceTests: XCTestCase {
+    var sut: NFCService!
+    var mockSessionFactory: MockNFCReaderSessionFactory!
+    var mockSession: MockNFCReaderSession!
+    
+    override func setUp() {
+        super.setUp()
+        mockSessionFactory = MockNFCReaderSessionFactory()
+        mockSession = mockSessionFactory.mockSession
+        sut = NFCService(factory: mockSessionFactory)
+    }
+    
+    override func tearDown() {
+        sut = nil
+        mockSessionFactory = nil
+        mockSession = nil
+        super.tearDown()
+    }
+    
     func test_scanNFC_whenNFCIsNotAvailable_returnsScanningNotSupportedError() {
-        let factory = MockFactory()
-        let service = NFCService(factory: factory)
-
+        // Arrange
         let expectation = self.expectation(description: "Completion called")
-        service.scanNFC { result in
+        
+        // Act
+        sut.scanNFC { result in
             if case .failure(let error) = result {
+                
+                // Assert
                 XCTAssertEqual(error as? NFCError, NFCError.scanningNotSupported)
             } else {
                 XCTFail("Expected scanningNotSupported error, but received success.")
             }
             expectation.fulfill()
         }
-
+        
         waitForExpectations(timeout: 1)
     }
 }
