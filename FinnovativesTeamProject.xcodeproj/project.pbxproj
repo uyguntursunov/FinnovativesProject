@@ -6,6 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		EF6ACE842DBB8F7400CD788B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5509BA82DA6BF2C00589794 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5509BAF2DA6BF2C00589794;
+			remoteInfo = FinnovativesTeamProject;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		EF5373F42DB68867000AF3D5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -21,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		D5509BB02DA6BF2C00589794 /* FinnovativesTeamProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinnovativesTeamProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF6ACE802DBB8F7400CD788B /* S.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = S.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -42,10 +53,22 @@
 			path = FinnovativesTeamProject;
 			sourceTree = "<group>";
 		};
+		EF6ACE812DBB8F7400CD788B /* FinnovativesTeamProject_Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = FinnovativesTeamProject_Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D5509BAD2DA6BF2C00589794 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF6ACE7D2DBB8F7400CD788B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				D5509BB22DA6BF2C00589794 /* FinnovativesTeamProject */,
+				EF6ACE812DBB8F7400CD788B /* FinnovativesTeamProject_Tests */,
 				D5509BB12DA6BF2C00589794 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				D5509BB02DA6BF2C00589794 /* FinnovativesTeamProject.app */,
+				EF6ACE802DBB8F7400CD788B /* S.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +122,29 @@
 			productReference = D5509BB02DA6BF2C00589794 /* FinnovativesTeamProject.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EF6ACE7F2DBB8F7400CD788B /* S */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF6ACE882DBB8F7400CD788B /* Build configuration list for PBXNativeTarget "S" */;
+			buildPhases = (
+				EF6ACE7C2DBB8F7400CD788B /* Sources */,
+				EF6ACE7D2DBB8F7400CD788B /* Frameworks */,
+				EF6ACE7E2DBB8F7400CD788B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF6ACE852DBB8F7400CD788B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EF6ACE812DBB8F7400CD788B /* FinnovativesTeamProject_Tests */,
+			);
+			name = S;
+			packageProductDependencies = (
+			);
+			productName = S;
+			productReference = EF6ACE802DBB8F7400CD788B /* S.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -109,6 +157,10 @@
 				TargetAttributes = {
 					D5509BAF2DA6BF2C00589794 = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					EF6ACE7F2DBB8F7400CD788B = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = D5509BAF2DA6BF2C00589794;
 					};
 				};
 			};
@@ -127,12 +179,20 @@
 			projectRoot = "";
 			targets = (
 				D5509BAF2DA6BF2C00589794 /* FinnovativesTeamProject */,
+				EF6ACE7F2DBB8F7400CD788B /* S */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D5509BAE2DA6BF2C00589794 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF6ACE7E2DBB8F7400CD788B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -149,7 +209,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF6ACE7C2DBB8F7400CD788B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF6ACE852DBB8F7400CD788B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5509BAF2DA6BF2C00589794 /* FinnovativesTeamProject */;
+			targetProxy = EF6ACE842DBB8F7400CD788B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D5509BC42DA6BF2D00589794 /* Debug */ = {
@@ -329,6 +404,42 @@
 			};
 			name = Release;
 		};
+		EF6ACE862DBB8F7400CD788B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GCQ7P7JP2X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abdulvohid.S;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinnovativesTeamProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FinnovativesTeamProject";
+			};
+			name = Debug;
+		};
+		EF6ACE872DBB8F7400CD788B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GCQ7P7JP2X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abdulvohid.S;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinnovativesTeamProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FinnovativesTeamProject";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -346,6 +457,15 @@
 			buildConfigurations = (
 				D5509BC42DA6BF2D00589794 /* Debug */,
 				D5509BC52DA6BF2D00589794 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF6ACE882DBB8F7400CD788B /* Build configuration list for PBXNativeTarget "S" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF6ACE862DBB8F7400CD788B /* Debug */,
+				EF6ACE872DBB8F7400CD788B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
