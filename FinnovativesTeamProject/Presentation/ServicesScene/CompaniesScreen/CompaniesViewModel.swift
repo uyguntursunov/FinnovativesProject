@@ -8,11 +8,13 @@
 import Foundation
 
 class CompaniesViewModel: ObservableObject {
-    
     @Published var searchText: String = ""
     @Published var allCompanies: [CompanyModel] = []
     
-    init() {
+    private let networkManager: NetworkManagerProtocol
+    
+    init(networkManager: NetworkManagerProtocol = NetworkManager.shared) {
+        self.networkManager = networkManager
         getCompanies()
     }
     
@@ -25,7 +27,7 @@ class CompaniesViewModel: ObservableObject {
     }
     
     func getCompanies() {
-        NetworkManager.shared.getCompanies() { [weak self] result in
+        networkManager.getCompanies { [weak self] result in
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {

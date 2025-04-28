@@ -57,6 +57,9 @@
 				FinnovativesTeamProject_UITests/OrderNFCView_UITests.swift,
 				FinnovativesTeamProject_UnitTests/NFCServiceTests/Mock/MockNFCReaderSession.swift,
 				FinnovativesTeamProject_UnitTests/NFCServiceTests/NFCServiceTests.swift,
+				FinnovativesTeamProject_UnitTests/ServicesScene_Tests/CompaniesViewModel_Tests.swift,
+				FinnovativesTeamProject_UnitTests/ServicesScene_Tests/OrderViewModel_Tests.swift,
+				FinnovativesTeamProject_UnitTests/ServicesScene_Tests/ServicesViewModel_Tests.swift,
 			);
 			target = D5509BAF2DA6BF2C00589794 /* FinnovativesTeamProject */;
 		};
@@ -65,6 +68,9 @@
 			membershipExceptions = (
 				FinnovativesTeamProject_UnitTests/NFCServiceTests/Mock/MockNFCReaderSession.swift,
 				FinnovativesTeamProject_UnitTests/NFCServiceTests/NFCServiceTests.swift,
+				FinnovativesTeamProject_UnitTests/ServicesScene_Tests/CompaniesViewModel_Tests.swift,
+				FinnovativesTeamProject_UnitTests/ServicesScene_Tests/OrderViewModel_Tests.swift,
+				FinnovativesTeamProject_UnitTests/ServicesScene_Tests/ServicesViewModel_Tests.swift,
 			);
 			target = D5D8BF802DBA96AD00F8BD98 /* FinnovativesTeamProjectTests */;
 		};

@@ -9,7 +9,13 @@ import Foundation
 
 internal let BASE_URL = "https://67f606e7913986b16fa65016.mockapi.io/"
 
-final class NetworkManager {
+protocol NetworkManagerProtocol {
+    func postOrder(model: OrderRequestModel, completion: @escaping (Bool) -> Void)
+    func getCompanies(completion: @escaping (Result<[CompanyModel], Error>) -> Void)
+    func getCompanyImage(url: String, completion: @escaping (Result<Data, Error>) -> Void)
+}
+
+class NetworkManager: NetworkManagerProtocol{
     static let shared = NetworkManager()
     
     // Businesses
