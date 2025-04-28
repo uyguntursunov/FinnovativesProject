@@ -36,7 +36,6 @@ final class ServicesViewModel_Tests: XCTestCase {
         }
         
         // Then
-        
         // Check if the number of services matches the number of ServiceType cases
         XCTAssertEqual(actualServices.count, expectedServices.count,
                        "The number of services are not equal to the number of ServiceType cases!")

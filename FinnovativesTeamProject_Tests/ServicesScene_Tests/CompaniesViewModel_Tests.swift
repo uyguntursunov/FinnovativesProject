@@ -49,7 +49,6 @@ final class CompaniesViewModel_Tests: XCTestCase {
             }
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 1.0)
     }
 }

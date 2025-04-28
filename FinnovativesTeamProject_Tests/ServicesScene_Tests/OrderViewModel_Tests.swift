@@ -74,10 +74,8 @@ final class OrderViewModel_Tests: XCTestCase {
             XCTAssertTrue(mockNetworkManager.postOrderCalled)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 2.0)
     }
-
 }
 
 // MARK: - MockNetworkManager
