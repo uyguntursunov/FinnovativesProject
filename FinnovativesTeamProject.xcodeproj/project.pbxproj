@@ -50,6 +50,32 @@
 			);
 			target = D5509BAF2DA6BF2C00589794 /* FinnovativesTeamProject */;
 		};
+		D5D8C6A32DBF9F9700F8BD98 /* Exceptions for "FinnovativesTeamProjectTests" folder in "FinnovativesTeamProject" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				FinnovativesTeamProject_UITests/GuidelineView_UITests.swift,
+				FinnovativesTeamProject_UITests/OrderNFCView_UITests.swift,
+				FinnovativesTeamProject_UnitTests/NFCServiceTests/Mock/MockNFCReaderSession.swift,
+				FinnovativesTeamProject_UnitTests/NFCServiceTests/NFCServiceTests.swift,
+			);
+			target = D5509BAF2DA6BF2C00589794 /* FinnovativesTeamProject */;
+		};
+		D5D8C6A42DBF9F9700F8BD98 /* Exceptions for "FinnovativesTeamProjectTests" folder in "FinnovativesTeamProjectTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				FinnovativesTeamProject_UnitTests/NFCServiceTests/Mock/MockNFCReaderSession.swift,
+				FinnovativesTeamProject_UnitTests/NFCServiceTests/NFCServiceTests.swift,
+			);
+			target = D5D8BF802DBA96AD00F8BD98 /* FinnovativesTeamProjectTests */;
+		};
+		D5D8C6A52DBF9F9700F8BD98 /* Exceptions for "FinnovativesTeamProjectTests" folder in "FinnovativesTeamProject_UITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				FinnovativesTeamProject_UITests/GuidelineView_UITests.swift,
+				FinnovativesTeamProject_UITests/OrderNFCView_UITests.swift,
+			);
+			target = D5D8C3192DBE7DF500F8BD98 /* FinnovativesTeamProject_UITests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -61,14 +87,14 @@
 			path = FinnovativesTeamProject;
 			sourceTree = "<group>";
 		};
-		D5D8BF822DBA96AD00F8BD98 /* FinnovativesTeamProject_UnitTests */ = {
+		D5D8C6962DBF9F9700F8BD98 /* FinnovativesTeamProjectTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FinnovativesTeamProject_UnitTests;
-			sourceTree = "<group>";
-		};
-		D5D8C31B2DBE7DF500F8BD98 /* FinnovativesTeamProject_UITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FinnovativesTeamProject_UITests;
+			exceptions = (
+				D5D8C6A32DBF9F9700F8BD98 /* Exceptions for "FinnovativesTeamProjectTests" folder in "FinnovativesTeamProject" target */,
+				D5D8C6A42DBF9F9700F8BD98 /* Exceptions for "FinnovativesTeamProjectTests" folder in "FinnovativesTeamProjectTests" target */,
+				D5D8C6A52DBF9F9700F8BD98 /* Exceptions for "FinnovativesTeamProjectTests" folder in "FinnovativesTeamProject_UITests" target */,
+			);
+			path = FinnovativesTeamProjectTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -102,8 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				D5509BB22DA6BF2C00589794 /* FinnovativesTeamProject */,
-				D5D8BF822DBA96AD00F8BD98 /* FinnovativesTeamProject_UnitTests */,
-				D5D8C31B2DBE7DF500F8BD98 /* FinnovativesTeamProject_UITests */,
+				D5D8C6962DBF9F9700F8BD98 /* FinnovativesTeamProjectTests */,
 				D5509BB12DA6BF2C00589794 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,6 +161,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				D5509BB22DA6BF2C00589794 /* FinnovativesTeamProject */,
+				D5D8C6962DBF9F9700F8BD98 /* FinnovativesTeamProjectTests */,
 			);
 			name = FinnovativesTeamProject;
 			packageProductDependencies = (
@@ -157,9 +183,6 @@
 			dependencies = (
 				D5D8BF862DBA96AD00F8BD98 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				D5D8BF822DBA96AD00F8BD98 /* FinnovativesTeamProject_UnitTests */,
-			);
 			name = FinnovativesTeamProjectTests;
 			packageProductDependencies = (
 			);
@@ -179,9 +202,6 @@
 			);
 			dependencies = (
 				D5D8C3212DBE7DF500F8BD98 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				D5D8C31B2DBE7DF500F8BD98 /* FinnovativesTeamProject_UITests */,
 			);
 			name = FinnovativesTeamProject_UITests;
 			packageProductDependencies = (

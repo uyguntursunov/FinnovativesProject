@@ -52,7 +52,6 @@ struct OrderView: View {
                     
                     numberOfNFCTextField
                     
-                    
                     if viewModel.showWarningText(numberOfStickersText) {
                         warningTextWithImage
                     }
@@ -77,7 +76,7 @@ struct OrderView: View {
                     Button {
                         dismiss()
                     } label: {
-                        Image(systemName: IS.chevronBackward.rawValue)
+                        Image(systemName: IS.chevronBackward)
                             .foregroundColor(.gray)
                             .font(.system(size: 20, weight: .bold))
                     }
@@ -101,7 +100,6 @@ extension OrderView {
                 .background(.white)
                 .frame(width: 100, height: 80)
         }
-        
     }
     
     private var companyName: some View {
@@ -112,7 +110,7 @@ extension OrderView {
     
     private var phoneNumberTextFieldTitle: some View {
         HStack {
-            Text("Phone number")
+            Text("phoneNumber".localized)
                 .font(.headline)
                 .foregroundColor(.gray)
             Spacer()
@@ -121,11 +119,11 @@ extension OrderView {
     
     private var phoneNumberTextField: some View {
         HStack(spacing: 4) {
-            Text("+998")
+            Text("countryCode".localized)
                 .foregroundColor(.primary)
                 .padding(.leading, 10)
             
-            TextField("Phone number", text: $phoneNumberText)
+            TextField("phoneNumber".localized, text: $phoneNumberText)
                 .keyboardType(.numberPad)
                 .disableAutocorrection(true)
                 .foregroundColor(.primary)
@@ -153,7 +151,7 @@ extension OrderView {
     
     private var numberOfNFCTextFieldTitle: some View {
         HStack {
-            Text("Number of NFC stickers")
+            Text("numberOfNFCStickers".localized)
                 .font(.headline)
                 .foregroundColor(.gray)
             Spacer()
@@ -161,7 +159,7 @@ extension OrderView {
     }
     
     private var numberOfNFCTextField: some View {
-        TextField("Number of NFC stickers", text: $numberOfStickersText)
+        TextField("numberOfNFCStickers".localized, text: $numberOfStickersText)
             .keyboardType(.numberPad)
             .foregroundColor(.primary)
             .padding()
@@ -185,12 +183,12 @@ extension OrderView {
     
     private var warningTextWithImage: some View {
         HStack(alignment: .center, spacing: 8) {
-            Image(systemName: IS.exclamationmarkCircle.rawValue)
+            Image(systemName: IS.exclamationmarkCircle)
                 .resizable()
                 .foregroundColor(.red)
                 .frame(width: 22, height: 22)
             
-            Text("The number of NFC stickers must be between 1 and 100.")
+            Text("numberWarningMessage".localized)
                 .font(.system(size: 10))
                 .foregroundColor(.red)
         }
@@ -211,11 +209,11 @@ extension OrderView {
                 if success {
                     navigate = true
                 } else {
-                    print("Failed to send order")
+                    print("sendOrderFailure".localized)
                 }
             }
         } label: {
-            Text("Confirm")
+            Text("confirm".localized)
                 .font(.headline)
                 .foregroundColor(isButtonEnabled ? .white : .disabledButtonText)
                 .frame(maxWidth: .infinity)

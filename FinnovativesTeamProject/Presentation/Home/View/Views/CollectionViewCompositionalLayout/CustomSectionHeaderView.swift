@@ -19,7 +19,7 @@ final class CustomSectionHeaderView: UICollectionReusableView {
     
     private let moreButton: UIButton = {
         let button = UIButton()
-        button.setTitle("More", for: .normal)
+        button.setTitle("more".localized, for: .normal)
         button.setTitleColor(.main, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
         return button

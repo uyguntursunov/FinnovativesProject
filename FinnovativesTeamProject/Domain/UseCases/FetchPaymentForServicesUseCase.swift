@@ -26,7 +26,7 @@ final class FetchPaymentForServicesUseCase: FetchPaymentForServicesUseCaseProtoc
             case .success(let data):
                 completion(data)
             case .failure(let error):
-                print("Couldn't fetch payment for services: \(error.localizedDescription)")
+                print(ContentFetchErrorMessage.payForServiceFetchErrorMessage + error.localizedDescription)
             }
         }
     }

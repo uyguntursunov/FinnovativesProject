@@ -11,20 +11,20 @@ final class LocalFileManager {
     static let instance = LocalFileManager()
     
     func saveImage(image: UIImage, imageName: String, folderName: String) {
-        // create folder
+        // Create folder
         createFolderIfNeeded(folderName: folderName)
         
-        // get path for image
+        // Get path for image
         guard
             let data = image.pngData(),
             let url = getURLForImage(imageName: imageName, folderName: folderName)
         else { return }
-          
-        // save image to path
+        
+        // Save image to path
         do {
             try data.write(to: url)
         } catch let error {
-            print("Error saving image. ImageName: \(imageName). \(error)")
+            print(FileManagerErrorMessage.saveImageError + (imageName) + (error.localizedDescription))
         }
     }
     
@@ -36,7 +36,7 @@ final class LocalFileManager {
         }
         return UIImage(contentsOfFile: url.path)
     }
-   
+    
     private func createFolderIfNeeded(folderName: String) {
         guard let url = getURLForFolder(folderName: folderName) else { return }
         
@@ -44,7 +44,7 @@ final class LocalFileManager {
             do {
                 try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
             } catch let error {
-                print("Error creating directory. FolderName: \(folderName). \(error)")
+                print(FileManagerErrorMessage.createDirectoryError + (folderName) + (error.localizedDescription))
             }
         }
     }
@@ -62,5 +62,4 @@ final class LocalFileManager {
         }
         return folderURL.appendingPathComponent(imageName + ".png")
     }
-    
 }

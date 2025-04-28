@@ -33,7 +33,7 @@ struct ServicesView: View {
             .padding()
         }
         .background(Color.background)
-        .navigationTitle("Services")
+        .navigationTitle("services".localized)
         .navigationBarTitleDisplayMode(.inline)
     }
 }

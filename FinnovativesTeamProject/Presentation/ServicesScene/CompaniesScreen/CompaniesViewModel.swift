@@ -32,7 +32,7 @@ class CompaniesViewModel: ObservableObject {
                     self?.allCompanies = data
                 }
             case .failure(let error):
-                print("Couldn't fetch companies from Network", error.localizedDescription)
+                print(NetworkManagerErrorMessage.fetchCompaniesError + error.localizedDescription)
             }
         }
     }

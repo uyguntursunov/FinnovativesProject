@@ -11,7 +11,7 @@ class CompanyImageService {
     @Published var image: UIImage? = nil
     private let company: CompanyModel
     private let fileManager = LocalFileManager.instance
-    private let folderName = "company_images"
+    private let folderName = "company_images".localized
     private var isLoadingImage: Bool = false
     
     init(company: CompanyModel) {
@@ -23,10 +23,10 @@ class CompanyImageService {
         guard !isLoadingImage else { return }
         if let savedImage = fileManager.getImage(imageName: company.id, folderName: folderName) {
             image = savedImage
-            print("Image from filemanager")
+            print("imageFromFileManager".localized)
         } else {
             downloadCompanyImage()
-            print("Downloading image")
+            print("imageFromNetwork".localized)
         }
     }
     
@@ -41,7 +41,7 @@ class CompanyImageService {
                     self.fileManager.saveImage(image: image, imageName: self.company.id, folderName: self.folderName)
                 }
             case .failure(let error):
-                print("Couldn't get company image", error.localizedDescription)
+                print(NetworkManagerErrorMessage.getCompanyImageError + error.localizedDescription)
             }
         }
     }

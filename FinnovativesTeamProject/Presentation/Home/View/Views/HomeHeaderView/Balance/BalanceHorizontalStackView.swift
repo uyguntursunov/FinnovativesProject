@@ -24,7 +24,7 @@ final class BalanceHorizontalStackView: UIStackView {
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
-        label.text = "SHOW BALANCE"
+        label.text = "showBalance".localized
         return label
     }()
     

@@ -16,11 +16,11 @@ enum NavController: String {
     
     var title: String {
         switch self {
-        case .main: "Home"
-        case .transfer: "Transfer"
-        case .payment: "Payment"
-        case .services: "Services"
-        case .cashFlow: "Cash flow"
+        case .main: "home".localized
+        case .transfer: "transfer".localized
+        case .payment: "payment".localized
+        case .services: "services".localized
+        case .cashFlow: "cashFlow".localized
         }
     }
     

@@ -101,7 +101,7 @@ struct GuidelineCardView: View {
         let dismissAction: () -> Void
         var body: some View {
             Button(action: dismissAction) {
-                Image(systemName: IS.xmark.rawValue)
+                Image(systemName: IS.xmark)
                     .font(.title2)
                     .foregroundStyle(Color.white)
             }

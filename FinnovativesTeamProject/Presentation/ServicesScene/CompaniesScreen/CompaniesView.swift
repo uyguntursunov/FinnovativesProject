@@ -57,7 +57,7 @@ struct CompaniesView: View {
                     }
                 }
             }
-            .navigationTitle("Order NFC sticker")
+            .navigationTitle("orderNFCSticker".localized)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
             .toolbar {
@@ -65,7 +65,7 @@ struct CompaniesView: View {
                     Button {
                         rootPresenting = false
                     } label: {
-                        Image(systemName: IS.chevronBackward.rawValue)
+                        Image(systemName: IS.chevronBackward)
                             .foregroundColor(.gray)
                             .font(.system(size: 20, weight: .bold))
                     }
@@ -78,11 +78,11 @@ struct CompaniesView: View {
 extension CompaniesView {
     private var searchBar: some View {
         HStack(spacing: 5) {
-            Image(systemName: IS.magnifyingglass.rawValue)
+            Image(systemName: IS.magnifyingglass)
                 .foregroundStyle(.gray)
                 .padding(.leading, 20)
             
-            TextField("Search", text: $viewModel.searchText)
+            TextField("search".localized, text: $viewModel.searchText)
                 .focused($isSearchFieldFocused)
                 .padding(.leading, 3)
                 .cornerRadius(10)
@@ -97,7 +97,7 @@ extension CompaniesView {
                     viewModel.searchText = ""
                     isSearchFieldFocused = true
                 }) {
-                    Image(systemName: IS.xmarkCircleFill.rawValue)
+                    Image(systemName: IS.xmarkCircleFill)
                         .foregroundStyle(.gray)
                         .padding(.trailing, 8)
                 }
@@ -110,7 +110,7 @@ extension CompaniesView {
     }
     
     private var companiesTitle: some View {
-        Text("Select your business")
+        Text("selectYourBusiness".localized)
             .font(.headline)
             .foregroundColor(.primary)
     }

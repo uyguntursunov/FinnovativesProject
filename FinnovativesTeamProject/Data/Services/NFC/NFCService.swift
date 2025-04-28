@@ -33,7 +33,7 @@ extension NFCService: NFCServiceProtocol {
         
         self.completion = completion
         session = sessionFactory.createSession(delegate: self)
-        session?.alertMessage = "Hold your iPhone near Payme tag to make payment."
+        session?.alertMessage = "nfcAlertMessage".localized
         session?.begin()
     }
 }

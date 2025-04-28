@@ -10,7 +10,7 @@ import CoreNFC
 @testable import FinnovativesTeamProject
 
 final class MockNFCReaderSession: NFCNDEFReaderSessionProtocol {
-    var alertMessage: String = "Hold your iPhone near Payme tag to make payment."
+    var alertMessage: String = "nfcAlertMessage".localized
     var didBegin = false
     var didInvalidate = false
 

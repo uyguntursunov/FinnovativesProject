@@ -26,7 +26,7 @@ final class FetchFinancialServicesUseCase: FetchFinancialServicesUseCaseProtocol
             case .success(let data):
                 completion(data)
             case .failure(let error):
-                print("Couldn't fetch financial services: \(error.localizedDescription)")
+                print(ContentFetchErrorMessage.finServiceFetchErrorMessage + error.localizedDescription)
             }
         }
     }

@@ -51,11 +51,11 @@ enum SFSymbols {
     static let clockArrow = UIImage(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")
 }
 
-enum ImageStrings: String {
-    case xmark = "xmark"
-    case questionmark = "questionmark"
-    case chevronBackward = "chevron.backward"
-    case magnifyingglass = "magnifyingglass"
-    case xmarkCircleFill = "xmark.circle.fill"
-    case exclamationmarkCircle = "exclamationmark.circle"
+enum ImageStrings {
+    static let xmark = "xmark"
+    static let questionmark = "questionmark"
+    static let chevronBackward = "chevron.backward"
+    static let magnifyingglass = "magnifyingglass"
+    static let xmarkCircleFill = "xmark.circle.fill"
+    static let exclamationmarkCircle = "exclamationmark.circle"
 }

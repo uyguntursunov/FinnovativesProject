@@ -26,7 +26,7 @@ struct CompanyCellView: View {
                 ProgressView()
                     .frame(width: 80, height: 80)
             } else {
-                Image(systemName: IS.questionmark.rawValue)
+                Image(systemName: IS.questionmark)
                     .resizable()
                     .frame(width: 80, height: 80)
             }

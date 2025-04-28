@@ -27,11 +27,11 @@ struct SuccessView: View {
                 Spacer()
                 
                 VStack {
-                    Image(systemName: IS.chevronBackward.rawValue)
+                    Image(systemName: IS.chevronBackward)
                         .foregroundColor(.gray)
                         .font(.system(size: 24, weight: .bold))
                     
-                    Text("Return to app")
+                    Text("returnToApp".localized)
                         .font(.subheadline)
                         .foregroundColor(.gray)
                         .padding()
@@ -67,12 +67,12 @@ extension SuccessView {
     }
     
     private var successText: some View {
-        Text("Success!")
+        Text("success".localized)
             .font(.title3.bold())
     }
     
     private var detailedSuccessText: some View {
-        Text("We have successfully received your request. Our operators will contact your company shortly!")
+        Text("successMessage".localized)
             .multilineTextAlignment(.center)
             .foregroundColor(.gray)
             .padding()

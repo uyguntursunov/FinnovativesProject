@@ -26,7 +26,7 @@ final class FetchEventsUseCase: FetchEventsUseCaseProtocol {
             case .success(let data):
                 completion(data)
             case .failure(let error):
-                print("Couldn't fetch events: \(error.localizedDescription)")
+                print(ContentFetchErrorMessage.eventFetchErrorMessage + error.localizedDescription)
             }
         }
     }

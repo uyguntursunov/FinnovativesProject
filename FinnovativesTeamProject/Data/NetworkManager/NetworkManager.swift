@@ -13,10 +13,10 @@ final class NetworkManager {
     static let shared = NetworkManager()
     
     // Businesses
-    let API_URL_BUSINESSES = BASE_URL + "Businesses"
+    private let API_URL_BUSINESSES = BASE_URL + "Businesses"
     
     // Order requestes
-    let API_URL_REQUESTS = BASE_URL + "NFCStickerRequests"
+    private let API_URL_REQUESTS = BASE_URL + "NFCStickerRequests"
 }
 
 // MARK: - GET COMPANIES
@@ -56,7 +56,7 @@ extension NetworkManager {
         do {
             request.httpBody = try JSONEncoder().encode(order)
         } catch {
-            print("Encoding error: \(error.localizedDescription)")
+            print(NetworkManagerErrorMessage.encodingError + error.localizedDescription)
             completion(false)
             return
         }
@@ -64,7 +64,7 @@ extension NetworkManager {
         let task = URLSession.shared.dataTask(with: request) { _, _, error in
             DispatchQueue.main.async {
                 if let error = error {
-                    print("Request error: \(error.localizedDescription)")
+                    print(NetworkManagerErrorMessage.requestError + error.localizedDescription)
                     completion(false)
                     return
                 }

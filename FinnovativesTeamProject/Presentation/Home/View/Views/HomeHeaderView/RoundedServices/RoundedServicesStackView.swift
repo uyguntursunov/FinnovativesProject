@@ -8,9 +8,9 @@
 import UIKit
 
 fileprivate let roundedServices: [HomeMainServiceModel] = [
-    HomeMainServiceModel(image: SF.creditcardLarge, title: "My cards"),
-    HomeMainServiceModel(image: SF.gCircle, title: "Payme Go"),
-    HomeMainServiceModel(image: SF.qrcodeViewfinder, title: "QR payment")
+    HomeMainServiceModel(image: SF.creditcardLarge, title: "myCards".localized),
+    HomeMainServiceModel(image: SF.gCircle, title: "paymeGo".localized),
+    HomeMainServiceModel(image: SF.qrcodeViewfinder, title: "qrPayment".localized)
 ]
 
 final class RoundedServicesStackView: UIStackView {

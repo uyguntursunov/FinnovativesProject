@@ -41,7 +41,7 @@ extension HomeInteractor: HomeInteractorProtocol {
                                  paymentForServices: data.paymentForServices)
             case .failure(let error):
                 response = .init(events: [], financialServices: [], paymentForServices: [])
-                print("Couldn't fetch home content: \(error.localizedDescription)")
+                print(ContentFetchErrorMessage.contentFetchErrorMessage + error.localizedDescription)
             }
             
             self?.presentor.presentContent(response)
