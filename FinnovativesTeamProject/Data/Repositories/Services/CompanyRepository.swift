@@ -9,12 +9,12 @@ import Foundation
 
 final class CompanyRepository: CompanyRepositoryProtocol {
     let networkManager: NetworkManagerProtocol
-    let companyDTOMapper: CompanyDTOMapperProtocol
+    let companyDtoMapper: CompanyDtoMapperProtocol
     
     init(networkManager: NetworkManagerProtocol = NetworkManager.shared,
-         companyDtoMapper: CompanyDTOMapperProtocol = CompanyDTOMapper()) {
+         companyDtoMapper: CompanyDtoMapperProtocol = CompanyDtoMapper()) {
         self.networkManager = networkManager
-        self.companyDTOMapper = companyDtoMapper
+        self.companyDtoMapper = companyDtoMapper
     }
     
     func fetchCompanies(_ completion: @escaping (Result<[CompanyEntity], Error>) -> Void) {
@@ -22,7 +22,7 @@ final class CompanyRepository: CompanyRepositoryProtocol {
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
-                    if let data = self?.companyDTOMapper.map(data) {
+                    if let data = self?.companyDtoMapper.map(data) {
                         completion(.success(data))
                     }
                 }

@@ -22,7 +22,7 @@ final class ServicesViewModel_Tests: XCTestCase {
     func testIsServicesModelProvidesDataCorrectly() throws {
         // Given
         let expectedServices = ServiceType.allCases.map { service in
-            ServiceModel(imageString: service.imageString,
+            ServiceUiTile(imageString: service.imageString,
                          title: service.title,
                          subtitle: service.subtitle,
                          type: service

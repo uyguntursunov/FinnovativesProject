@@ -60,7 +60,7 @@ final class OrderViewModel_Tests: XCTestCase {
             return
         }
         
-        let order = OrderRequestModel(
+        let order = OrderRequestUiTile(
             comapnyName: "TestCompanyName",
             companyPhone: "123456789",
             numberOfNFCStickers: 10,
@@ -88,11 +88,7 @@ class MockNetworkManager: NetworkManagerProtocol {
         completion(shouldSucceed)
     }
     
-    func getCompanies(completion: @escaping (Result<[CompanyModel], Error>) -> Void) {
-
-    }
+    func getCompanies(completion: @escaping (Result<[CompanyModel], Error>) -> Void) { }
     
-    func getCompanyImage(url: String, completion: @escaping (Result<Data, Error>) -> Void) {
-
-    }
+    func getCompanyImage(url: String, completion: @escaping (Result<Data, Error>) -> Void) { }
 }

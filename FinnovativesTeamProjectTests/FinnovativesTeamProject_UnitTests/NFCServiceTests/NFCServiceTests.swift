@@ -12,7 +12,7 @@ import CoreNFC
 @testable import FinnovativesTeamProject
 
 final class NFCServiceTests: XCTestCase {
-    var sut: NFCService!
+    var sut: NFCRepository!
     var mockSessionFactory: MockNFCReaderSessionFactory!
     var mockSession: MockNFCReaderSession!
     
@@ -20,7 +20,7 @@ final class NFCServiceTests: XCTestCase {
         super.setUp()
         mockSessionFactory = MockNFCReaderSessionFactory()
         mockSession = mockSessionFactory.mockSession
-        sut = NFCService(factory: mockSessionFactory)
+        sut = NFCRepository(factory: mockSessionFactory)
     }
     
     override func tearDown() {
