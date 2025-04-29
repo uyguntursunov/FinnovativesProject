@@ -14,9 +14,9 @@ enum NFCError: Error {
     var description: String {
         switch self {
         case .scanningNotSupported:
-            return "scanningNotSupported".localized
+            return "scanning_not_supported".localized
         case .invalidURL:
-            return "invalidURL".localized
+            return "invalid_URL".localized
         }
     }
 }

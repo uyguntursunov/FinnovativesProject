@@ -40,12 +40,13 @@ final class TabBarController: UITabBarController {
         setViewControllers(viewControllers, animated: true)
     }
     
-    private func createNavController(for navController: NavController,
+    private func createNavController(
+        for navigationController: NavigationController,
                                      rootViewController: UIViewController) -> UINavigationController
     {
-        let navigationController = UINavigationController(rootViewController: rootViewController)
-        navigationController.tabBarItem.title = navController.title
-        navigationController.tabBarItem.image = navController.tabBarIcon
-        return navigationController
+        let navController = UINavigationController(rootViewController: rootViewController)
+        navController.tabBarItem.title = navigationController.title
+        navController.tabBarItem.image = navigationController.tabBarIcon
+        return navController
     }
 }

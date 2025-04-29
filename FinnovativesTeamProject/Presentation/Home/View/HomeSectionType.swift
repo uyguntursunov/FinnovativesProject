@@ -18,11 +18,11 @@ enum HomeSectionType: Int, CaseIterable {
         case .header:
             return ""
         case .finServices:
-            return "financialServices".localized
+            return "financial_services".localized
         case .events:
             return ""
         case .paymentForServices:
-            return "paymentForServices".localized
+            return "payment_for_services".localized
         }
     }
 }

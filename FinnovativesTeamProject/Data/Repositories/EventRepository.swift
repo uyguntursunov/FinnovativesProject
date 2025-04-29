@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol EventRepositoryProtocol {
-    func fetchEvents(_ completion: @escaping (Result<[EventEntity], Error>) -> Void)
-}
-
 final class EventRepository: EventRepositoryProtocol {
     private let events: [EventEntity] = [
         EventEntity(image: .event),

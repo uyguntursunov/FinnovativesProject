@@ -23,10 +23,10 @@ class CompanyImageService {
         guard !isLoadingImage else { return }
         if let savedImage = fileManager.getImage(imageName: company.id, folderName: folderName) {
             image = savedImage
-            print("imageFromFileManager".localized)
+            print("image_from_file_manager".localized)
         } else {
             downloadCompanyImage()
-            print("imageFromNetwork".localized)
+            print("image_from_network".localized)
         }
     }
     

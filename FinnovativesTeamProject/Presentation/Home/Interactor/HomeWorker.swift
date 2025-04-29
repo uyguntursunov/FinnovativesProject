@@ -18,23 +18,20 @@ protocol HomeWorkerProtocol {
 }
 
 final class HomeWorker: NSObject {
-    private let fetchEventsUseCase: FetchEventsUseCaseProtocol
-    private let fetchFinancialServicesUseCase: FetchFinancialServicesUseCaseProtocol
-    private let fetchPaymentForServicesUseCase: FetchPaymentForServicesUseCaseProtocol
+    private let fetchContentUseCaseFactory: FetchContentUseCaseFactoryProtocol
+    private let contentDTOMapperFactory: ContentDTOMapperFactoryProtocol
     private let nfcService: NFCServiceProtocol
     private var events: [EventModel] = []
     private var financialServices: [FinancialServiceModel] = []
     private var paymentForServices: [PaymentForServiceModel] = []
     
     init(
-        fetchEventsUseCase: FetchEventsUseCaseProtocol = FetchEventsUseCase(),
-        fetchFinancialServicesUseCase: FetchFinancialServicesUseCaseProtocol = FetchFinancialServicesUseCase(),
-        fetchPaymentForServicesUseCase: FetchPaymentForServicesUseCaseProtocol = FetchPaymentForServicesUseCase(),
+        fetchContentUseCaseFactory: FetchContentUseCaseFactoryProtocol = FetchContentUseCaseFactory(),
+        contentMapperFactory: ContentDTOMapperFactoryProtocol = ContentDTOMapperFactory(),
         nfcService: NFCServiceProtocol
     ) {
-        self.fetchEventsUseCase = fetchEventsUseCase
-        self.fetchFinancialServicesUseCase = fetchFinancialServicesUseCase
-        self.fetchPaymentForServicesUseCase = fetchPaymentForServicesUseCase
+        self.fetchContentUseCaseFactory = fetchContentUseCaseFactory
+        self.contentDTOMapperFactory = contentMapperFactory
         self.nfcService = nfcService
     }
 }
@@ -46,23 +43,21 @@ extension HomeWorker: HomeWorkerProtocol {
         request: HomeModels.FetchContent.Request,
         completion: @escaping (Result<HomeModels.FetchContent.Response, any Error>) -> Void
     ) {
-        fetchEventsUseCase.execute { [weak self] entities in
-            for entity in entities {
-                self?.events.append(EventModel(image: entity.image))
+        fetchContentUseCaseFactory.createFetchEventsUseCase().execute { [weak self] entities in
+            if let events = self?.contentDTOMapperFactory.createEventDTOMapper().map(entities) {
+                self?.events = events
             }
         }
         
-        fetchFinancialServicesUseCase.execute { [weak self] entities in
-            for entity in entities {
-                self?.financialServices.append(FinancialServiceModel(title: entity.title,
-                                                                     image: entity.image))
+        fetchContentUseCaseFactory.createFetchFinancialServicesUseCase().execute { [weak self] entities in
+            if let financialServices = self?.contentDTOMapperFactory.createFinancialServiceDTOMapper().map(entities) {
+                self?.financialServices = financialServices
             }
         }
         
-        fetchPaymentForServicesUseCase.execute { [weak self] entities in
-            for entity in entities {
-                self?.paymentForServices.append(PaymentForServiceModel(title: entity.title,
-                                                                       image: entity.image))
+        fetchContentUseCaseFactory.createFetchPaymentForServicesUseCase().execute { [weak self] entities in
+            if let payForServices = self?.contentDTOMapperFactory.createPaymentForServiceDTOMapper().map(entities) {
+                self?.paymentForServices = payForServices
             }
         }
         

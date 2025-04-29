@@ -31,7 +31,7 @@ struct SuccessView: View {
                         .foregroundColor(.gray)
                         .font(.system(size: 24, weight: .bold))
                     
-                    Text("returnToApp".localized)
+                    Text("return_to_app".localized)
                         .font(.subheadline)
                         .foregroundColor(.gray)
                         .padding()
@@ -72,7 +72,7 @@ extension SuccessView {
     }
     
     private var detailedSuccessText: some View {
-        Text("successMessage".localized)
+        Text("success_message".localized)
             .multilineTextAlignment(.center)
             .foregroundColor(.gray)
             .padding()

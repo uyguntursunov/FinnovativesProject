@@ -57,7 +57,7 @@ struct CompaniesView: View {
                     }
                 }
             }
-            .navigationTitle("orderNFCSticker".localized)
+            .navigationTitle("order_nfc_sticker".localized)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
             .toolbar {
@@ -110,7 +110,7 @@ extension CompaniesView {
     }
     
     private var companiesTitle: some View {
-        Text("selectYourBusiness".localized)
+        Text("select_your_business".localized)
             .font(.headline)
             .foregroundColor(.primary)
     }

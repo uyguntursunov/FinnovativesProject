@@ -10,7 +10,7 @@ import CoreNFC
 @testable import FinnovativesTeamProject
 
 final class MockNFCReaderSession: NFCNDEFReaderSessionProtocol {
-    var alertMessage: String = "nfcAlertMessage".localized
+    var alertMessage: String = "nfc_alert_message".localized
     var didBegin = false
     var didInvalidate = false
 

@@ -1,5 +1,5 @@
 //
-//  NavController.swift
+//  NavigationController.swift
 //  FinnovativesTeamProject
 //
 //  Created by Uygun Tursunov on 26/04/25.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum NavController: String {
+enum NavigationController: String {
     case main
     case transfer
     case payment
@@ -20,7 +20,7 @@ enum NavController: String {
         case .transfer: "transfer".localized
         case .payment: "payment".localized
         case .services: "services".localized
-        case .cashFlow: "cashFlow".localized
+        case .cashFlow: "cash_flow".localized
         }
     }
     

@@ -110,7 +110,7 @@ extension OrderView {
     
     private var phoneNumberTextFieldTitle: some View {
         HStack {
-            Text("phoneNumber".localized)
+            Text("phone_number".localized)
                 .font(.headline)
                 .foregroundColor(.gray)
             Spacer()
@@ -119,11 +119,11 @@ extension OrderView {
     
     private var phoneNumberTextField: some View {
         HStack(spacing: 4) {
-            Text("countryCode".localized)
+            Text("country_code".localized)
                 .foregroundColor(.primary)
                 .padding(.leading, 10)
             
-            TextField("phoneNumber".localized, text: $phoneNumberText)
+            TextField("phone_number".localized, text: $phoneNumberText)
                 .keyboardType(.numberPad)
                 .disableAutocorrection(true)
                 .foregroundColor(.primary)
@@ -151,7 +151,7 @@ extension OrderView {
     
     private var numberOfNFCTextFieldTitle: some View {
         HStack {
-            Text("numberOfNFCStickers".localized)
+            Text("number_of_nfc_stickers".localized)
                 .font(.headline)
                 .foregroundColor(.gray)
             Spacer()
@@ -159,7 +159,7 @@ extension OrderView {
     }
     
     private var numberOfNFCTextField: some View {
-        TextField("numberOfNFCStickers".localized, text: $numberOfStickersText)
+        TextField("number_of_nfc_stickers".localized, text: $numberOfStickersText)
             .keyboardType(.numberPad)
             .foregroundColor(.primary)
             .padding()
@@ -188,7 +188,7 @@ extension OrderView {
                 .foregroundColor(.red)
                 .frame(width: 22, height: 22)
             
-            Text("numberWarningMessage".localized)
+            Text("number_warning_message".localized)
                 .font(.system(size: 10))
                 .foregroundColor(.red)
         }
@@ -209,7 +209,7 @@ extension OrderView {
                 if success {
                     navigate = true
                 } else {
-                    print("sendOrderFailure".localized)
+                    print("send_order_failure".localized)
                 }
             }
         } label: {

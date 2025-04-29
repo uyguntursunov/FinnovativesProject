@@ -11,7 +11,7 @@ final class BalanceLabelsVerticalStackView: UIStackView {
     
     private let totalBalanceLabel: UILabel = {
         let label = UILabel()
-        label.text = "totalBalance".localized
+        label.text = "total_balance".localized
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = .white
         label.textAlignment = .center
@@ -20,7 +20,7 @@ final class BalanceLabelsVerticalStackView: UIStackView {
     
     private let balanceLabel: UILabel = {
         let label = UILabel()
-        label.text = "balanceAmount".localized
+        label.text = "balance_amount".localized
         label.font = .systemFont(ofSize: 24, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -29,7 +29,7 @@ final class BalanceLabelsVerticalStackView: UIStackView {
     
     private let expenditureLabel: UILabel = {
         let label = UILabel()
-        label.text = "expenditureAmount".localized
+        label.text = "expenditure_amount".localized
         label.font = .systemFont(ofSize: 13, weight: .regular)
         label.textColor = .white
         label.textAlignment = .center

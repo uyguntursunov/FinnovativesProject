@@ -11,118 +11,118 @@
 "transfer" = "Transfer";
 "payment" = "Payment";
 "services" = "Services";
-"cashFlow" = "Cash flow";
+"cash_flow" = "Cash flow";
 
 // Home - Section titles
 
-"financialServices" = "Financial services";
-"paymentForServices" = "Payment for services";
+"financial_services" = "Financial services";
+"payment_for_services" = "Payment for services";
 "more" = "More";
 
 // Home - Header
 
-"showBalance" = "SHOW BALANCE";
-"totalBalance" = "Total balance";
-"balanceAmount" = "705 306 sum";
-"expenditureAmount" = "Expenditure for 0 sum";
-"myCards" = "My cards";
-"paymeGo" = "Payme Go";
-"qrPayment" = "QR payment";
+"show_balance" = "SHOW BALANCE";
+"total_balance" = "Total balance";
+"balance_amount" = "705 306 sum";
+"expenditure_amount" = "Expenditure for 0 sum";
+"my_cards" = "My cards";
+"payme_go" = "Payme Go";
+"qr_payment" = "QR payment";
 
 // Home - Financial services
 
-"transferFunds" = "Transfer funds";
-"tbcLoan" = "Loan from TBC Bank";
+"transfer_funds" = "Transfer funds";
+"tbc_loan" = "Loan from TBC Bank";
 
 // Home - Payment for services
 
 "popular" = "Популярное";
-"mobileOperators" = "Мобильные операторы";
-"internetProviders" = "Интернет-провайдеры";
-"communalServices" = "Коммунальные услуги";
-"govServices" = "Госуслуги и штрафы ГУБДД";
+"mobile_operators" = "Мобильные операторы";
+"internet_providers" = "Интернет-провайдеры";
+"communal_services" = "Коммунальные услуги";
+"gov_services" = "Госуслуги и штрафы ГУБДД";
 "telephony" = "Телефония";
-"tvOnlineBroadcasting" = "Телевидение и онлайн-вещание";
+"tv_online_broadcasting" = "Телевидение и онлайн-вещание";
 
 // Home - Content fetching error messages
 
-"contentFetchErrorMessage" = "Couldn't fetch home content: ";
-"eventFetchErrorMessage" = "Couldn't fetch events: ";
-"finServiceFetchErrorMessage" = "Couldn't fetch financial services: ";
-"payForServiceFetchErrorMessage" = "Couldn't fetch payment for services: ";
+"content_fetch_error_message" = "Couldn't fetch home content: ";
+"event_fetch_error_message" = "Couldn't fetch events: ";
+"fin_service_fetch_error_message" = "Couldn't fetch financial services: ";
+"pay_for_service_fetch_error_message" = "Couldn't fetch payment for services: ";
 
 // NFC Alert Message
 
-"nfcAlertMessage" = "Hold your iPhone near Payme tag to make payment.";
+"nfc_alert_message" = "Hold your iPhone near Payme tag to make payment.";
 
 // NFC Error messages
 
-"scanningNotSupported" = "Scanning NFC is not supported on this device.";
-"invalidURL" = "Invalid URL format.";
+"scanning_not_supported" = "Scanning NFC is not supported on this device.";
+"invalid_URL" = "Invalid URL format.";
 
 // FileManager Error messages
 
-"saveImageError" = "Error saving image: ";
-"createDirectoryError" = "Error creating directory: ";
+"save_image_error" = "Error saving image: ";
+"create_directory_error" = "Error creating directory: ";
 
 // NetworkManager Error messages
 
-"encodingError" = "Encoding error: ";
-"requestError" = "Request error: ";
-"fetchCompaniesError" = "Couldn't fetch companies from Network: ";
+"encoding_error" = "Encoding error: ";
+"request_error" = "Request error: ";
+"fetch_companies_error" = "Couldn't fetch companies from Network: ";
 
 // Services - Titles
 
 "credit" = "Credit";
-"paymePlus" = "payme plus";
-"deferredPayment" = "Deferred Payment";
-"paymeTickets" = "payme tickets";
-"paymeAvia" = "payme avia";
-"govServices" = "Certificates and Government Services";
+"payme_plus" = "payme plus";
+"deferred_payment" = "Deferred Payment";
+"payme_tickets" = "payme tickets";
+"payme_avia" = "payme avia";
+"certificates_gov_services" = "Certificates and Government Services";
 "reminders" = "Reminders";
-"accountPayment" = "Account Payment";
-"trafficPoliceFines" = "Notifications about Traffic Police Fines";
-"paymeGoals" = "Payme Goals";
-"lifeSituations" = "Life Situations";
+"account_payment" = "Account Payment";
+"traffic_police_fines" = "Notifications about Traffic Police Fines";
+"payme_goals" = "Payme Goals";
+"life_situations" = "Life Situations";
 "charity" = "Charity";
-"orderNFCSticker" = "Order NFC Sticker";
+"order_nfc_sticker" = "Order NFC Sticker";
 
 // Services - Subtitles
 
-"creditSub" = "Get an online credit from TBC BANK";
-"paymePlusSub" = "One subscription — many opportunities";
-"deferredPaymentSub" = "Pay now, repay later";
-"paymeTicketsSub" = "Purchase tickets for various events";
-"paymeAviaSub" = "Cashback when paying for flights";
-"govServicesSub" = "Certificates and Government Services";
-"remindersSub" = "For receiving payment reminders";
-"accountPaymentSub" = "Save time and money";
-"trafficPoliceFinesSub" = "Notifications about Traffic Police Fines";
-"paymeGoalsSub" = "A simple way to save for your goals";
-"lifeSituationsSub" = "Guide for important life events";
-"charitySub" = "Support charitable causes";
-"orderNFCStickerSub" = "Order NFC sticker for your business";
+"credit_sub" = "Get an online credit from TBC BANK";
+"payme_plus_sub" = "One subscription — many opportunities";
+"deferred_payment_sub" = "Pay now, repay later";
+"payme_tickets_sub" = "Purchase tickets for various events";
+"payme_avia_sub" = "Cashback when paying for flights";
+"gov_services_sub" = "Certificates and Government Services";
+"reminders_sub" = "For receiving payment reminders";
+"account_payment_sub" = "Save time and money";
+"traffic_police_fines_sub" = "Notifications about Traffic Police Fines";
+"payme_goals_sub" = "A simple way to save for your goals";
+"life_situations_sub" = "Guide for important life events";
+"charity_sub" = "Support charitable causes";
+"order_nfc_sticker_sub" = "Order NFC sticker for your business";
 
 // Order NFC Sticker service - Get Company Images
 
 "search" = "Search";
-"selectYourBusiness" = "Select your business";
+"select_your_business" = "Select your business";
 "company_images" = "company_images";
-"imageFromFileManager" = "Getting image from filemanager";
-"imageFromNetwork" = "Downloading image from Network";
-"getCompanyImageError" = "Couldn't get company image: ";
+"image_from_file_manager" = "Getting image from filemanager";
+"image_from_network" = "Downloading image from Network";
+"get_company_image_error" = "Couldn't get company image: ";
 
 // Order NFC Sticker service - Order Confirmation
 
-"phoneNumber" = "Phone number";
-"countryCode" = "+998";
-"numberOfNFCStickers" = "Number of NFC stickers";
-"numberWarningMessage" = "The number of NFC stickers must be between 1 and 100.";
-"sendOrderFailure" = "Failed to send order";
+"phone_number" = "Phone number";
+"country_code" = "+998";
+"number_of_nfc_stickers" = "Number of NFC stickers";
+"number_warning_message" = "The number of NFC stickers must be between 1 and 100.";
+"send_order_failure" = "Failed to send order";
 "confirm" = "Confirm";
 
 // Order NFC Sticker service - Success Screen
 
-"returnToApp" = "Return to app";
+"return_to_app" = "Return to app";
 "success" = "Success!";
-"successMessage" = "We have successfully received your request. Our operators will contact your company shortly!";
+"success_message" = "We have successfully received your request. Our operators will contact your company shortly!";

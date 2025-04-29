@@ -33,7 +33,7 @@ extension NFCService: NFCServiceProtocol {
         
         self.completion = completion
         session = sessionFactory.createSession(delegate: self)
-        session?.alertMessage = "nfcAlertMessage".localized
+        session?.alertMessage = "nfc_alert_message".localized
         session?.begin()
     }
 }
