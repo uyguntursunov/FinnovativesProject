@@ -9,10 +9,10 @@ import SwiftUI
 
 struct CompanyCellView: View {
    
-    @StateObject var vm: ServiceProviderCardViewModel
+    @StateObject var vm: CompanyCellViewModel
     
-    init(company: CompanyModel) {
-        _vm = StateObject(wrappedValue: ServiceProviderCardViewModel(company: company))
+    init(company: CompanyUiTile) {
+        _vm = StateObject(wrappedValue: CompanyCellViewModel(company: company))
     }
     
     var body: some View {

@@ -9,12 +9,12 @@ import SwiftUI
 
 class CompanyImageService {
     @Published var image: UIImage? = nil
-    private let company: CompanyModel
+    private let company: CompanyUiTile
     private let fileManager = LocalFileManager.instance
     private let folderName = "company_images".localized
     private var isLoadingImage: Bool = false
     
-    init(company: CompanyModel) {
+    init(company: CompanyUiTile) {
         self.company = company
         getCompanyImage()
     }

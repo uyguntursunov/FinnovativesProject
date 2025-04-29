@@ -10,7 +10,7 @@ import SwiftUI
 struct OrderView: View {
     @StateObject private var viewModel = OrderViewModel()
     
-    let provider: CompanyModel
+    let provider: CompanyUiTile
     
     @State private var phoneNumberText: String = ""
     @State private var numberOfStickersText: String = ""
@@ -200,7 +200,7 @@ extension OrderView {
     private var nextButton: some View {
         Button {
             guard let numberOfStickers = Int(numberOfStickersText) else { return }
-            let model = OrderRequestModel(comapnyName: provider.name,
+            let model = OrderRequestUiTile(comapnyName: provider.name,
                                           companyPhone: phoneNumberText,
                                           numberOfNFCStickers: numberOfStickers,
                                           companyID: provider.id)

@@ -8,15 +8,15 @@
 import SwiftUI
 import Combine
 
-final class ServiceProviderCardViewModel: ObservableObject {
+final class CompanyCellViewModel: ObservableObject {
     @Published var image: UIImage? = nil
     @Published var isLoading: Bool = false
     
-    private let company: CompanyModel
+    private let company: CompanyUiTile
     private let imageService: CompanyImageService
     private var cancellables = Set<AnyCancellable>()
     
-    init(company: CompanyModel) {
+    init(company: CompanyUiTile) {
         self.company = company
         self.imageService = CompanyImageService(company: company)
         self.addSubscribers()

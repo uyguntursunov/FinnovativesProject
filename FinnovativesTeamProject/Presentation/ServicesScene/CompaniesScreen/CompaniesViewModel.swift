@@ -9,16 +9,19 @@ import Foundation
 
 class CompaniesViewModel: ObservableObject {
     @Published var searchText: String = ""
-    @Published var allCompanies: [CompanyModel] = []
+    @Published var allCompanies: [CompanyUiTile] = []
     
-    private let networkManager: NetworkManagerProtocol
+    let fetchCompaniesUseCase: FetchCompaniesUseCaseProtocol
+    let companyUiTileMapper: CompanyUiTileMapperProtocol
     
-    init(networkManager: NetworkManagerProtocol = NetworkManager.shared) {
-        self.networkManager = networkManager
+    init(fetchCompaniesUseCase: FetchCompaniesUseCaseProtocol = FetchCompaniesUseCase(),
+         companyUiTileMapper: CompanyUiTileMapperProtocol = CompanyUiTileMapper()) {
+        self.fetchCompaniesUseCase = fetchCompaniesUseCase
+        self.companyUiTileMapper = companyUiTileMapper
         getCompanies()
     }
     
-    var filteredServiceProviders: [CompanyModel] {
+    var filteredServiceProviders: [CompanyUiTile] {
         if searchText.isEmpty {
             return allCompanies
         } else {
@@ -26,15 +29,12 @@ class CompaniesViewModel: ObservableObject {
         }
     }
     
-    func getCompanies() {
-        networkManager.getCompanies { [weak self] result in
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self?.allCompanies = data
+    private func getCompanies() {
+        fetchCompaniesUseCase.execute { [weak self] companies in
+            DispatchQueue.main.async {
+                if let companies = self?.companyUiTileMapper.map(companies) {
+                    self?.allCompanies = companies
                 }
-            case .failure(let error):
-                print(NetworkManagerErrorMessage.fetchCompaniesError + error.localizedDescription)
             }
         }
     }

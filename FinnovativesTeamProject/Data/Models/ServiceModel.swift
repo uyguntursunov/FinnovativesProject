@@ -16,7 +16,7 @@ struct ServiceModel: Identifiable {
 }
 
 struct CompanyModel: Codable, Identifiable{
-    var id: String
+    let id: String
     let name: String
     let imageUrl: String
 }

@@ -8,7 +8,14 @@
 import Foundation
 
 class OrderViewModel: ObservableObject {
-    let networkManager = NetworkManager.shared
+    let orderStickerUseCase: OrderStickerUseCaseProtocol
+    let orderRequestUiTileMapper: OrderRequestUiTileMapperProtocol
+    
+    init(orderStickerUseCase: OrderStickerUseCaseProtocol = OrderStickersUseCase(),
+         orderRequestUiTileMapper: OrderRequestUiTileMapperProtocol = OrderRequestUiTileMapper()) {
+        self.orderStickerUseCase = orderStickerUseCase
+        self.orderRequestUiTileMapper = orderRequestUiTileMapper
+    }
     
     func isTextFieldsValid(phoneText: String, numberOfStickers: String) -> Bool {
         let digitsOnly = phoneText.filter { $0.isNumber }
@@ -45,7 +52,10 @@ class OrderViewModel: ObservableObject {
         return result
     }
     
-    func postOrder(model: OrderRequestModel, completion: @escaping (Bool) -> Void) {
-        networkManager.postOrder(model: model, completion: completion)
+    func postOrder(model: OrderRequestUiTile, completion: @escaping (Bool) -> Void) {
+        let entity = orderRequestUiTileMapper.map(model)
+        orderStickerUseCase.execute(entity: entity) { result in
+            completion(result)
+        }
     }
 }
